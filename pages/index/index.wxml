@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view wx:if="{{isLoad}}" style='position: relative;'>
+  <!--搜索框  -->
+  <view class='header' style='background: {{opacity}}'>
+    <view class='search' bindtap='enterSearch'>
+      <image class='icon' mode='widthFix' src='../../images/icons/ss@3x.svg'></image>
+      <text>搜索商品，共{{productTotal}}款</text>
+    </view>
+    <view>
+    </view>
+    <view wx:if="{{false}}" class='ser-promise'>
+      <view class='item' wx:for='{{serPromise}}' wx:key='index'>
+        <image class='icon' mode='widthFix' src='../../images/icons/tj@3x.svg'></image>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!--banner滚动图  -->
+  <view class="banner">
+    <swiper bindchange='onSlideChangeEnd' id="swiper" indicator-dots="{{indicatorDots}}" circular='{{circular}}' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{adList}}" wx:key="item">
+        <swiper-item>
+          <image catchtap='enterAd' lazy-load="{{true}}" mode='aspectFill' src="{{item.imageId}}" class="slide-image" width="355" height="150" data-type="{{item.type}}" data-content="{{item.content}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- <view wx:if="{{adList.length}}" class="pages">{{current}}/{{adList.length}}</view> -->
+  </view>
+
+  <!-- 自营产品-自买省钱-分享赚钱 -->
+  <view class='ser-promise'>
+    <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms1}}</text></view>
+    <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms2}}</text></view>
+    <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms3}}</text></view>
+  </view>
+
+  <!-- 每日优选 -->
+  <view class='classify'>
+    <view class='menu clearfix'>
+      <view class='item' wx:for='{{categoryList}}' wx:key='{{index}}' bindtap='enterPage' data-data='{{item}}'>
+        <image lazy-load="{{true}}" class='pic' mode='scaleToFill' src='{{item.categoryCoverImage}}'></image>
+        <text class='text text-1-eclips'>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!--定制旅游  -->
+  <!-- <view class='customize'>
+    <image lazy-load="{{true}}" src="../../images/sample/dz@2x.png"></image>
+    <view class="tit">
+      <view class="tit-con">
+        <text class='h3'>定制旅游</text>
+        <text class="p">1对1定制，任你挑选！</text>
+      </view>
+    </view>
+    <text class="go mainBgColor">马上定制</text>
+  </view> -->
+
+  <!--人气推荐  -->
+  <view class='commoduty'>
+    <view class='title'>
+      <view class='part1'>
+        <text class='line'></text>
+        <text class='text'>人气推荐</text>
+        <text class='line'></text>
+      </view>
+      <view class='part2 mainBgColor'>{{classifyMenuLabel}}</view>
+    </view>
+    <view class='container'>
+      <view bindtap='enterDetail' class='list clearfix {{productList.length-1 == index? "" : "xpk-1px-b"}}' wx:for="{{productList}}" wx:key="item" data-id='{{item.id}}'>
+        <view class='pic-discr'>
+          <image lazy-load="{{true}}" mode='aspectFill' src="{{item.listCoverImage}}"></image>
+          <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+        </view>
+        <view class='info-con'>
+          <view class='info-cons'>
+            <text class='info-tit text-2-eclips'>{{item.name}}</text>
+            <text class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+            <view class='info-price'>
+              <text class='price'>￥{{item.realPrice}}</text>
+              <!-- <text wx:if="{{item.less != ''}}" class='reduce'>立省{{item.less}}元</text> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+</view>

@@ -1,0 +1,88 @@
+<!--取消订单详情  -->
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+    <block wx:if="{{type == '1'}}">
+      <view class='cancel-order-info'>
+        <!-- <view class="cancel-reason xpk-1px-b">
+          <picker bindchange="bindPickerChange" value="{{reasonArray.reasonName}}" range="{{reasonArray}}" range-key='reasonName'>
+            <view class='reasoninfo'>
+                <input value='取消原因' disabled="disabled"></input>
+                <view class='selreason picker'>
+                  {{selReason}}{{reasonArray[index].reasonName}}<text class='icon-jt'></text>
+                </view>
+            </view>
+          </picker>
+        </view> -->
+        <textarea maxlength='100' bindinput="input" id="detail" placeholder='详细描述（必填）'  placeholder-style="placeholder" value='{{content}}'></textarea>
+        <view wx:if="{{true}}" class="upload xpk-1px-t">
+          <view class="title">
+            添加图片
+            <text class="tip">（选填，您最多可以上传4张图片）</text>
+          </view>
+          <view class="imgList">
+            <view wx:for="{{imgList}}" wx:key="{{index}}" class="imgbox">
+              <icon catchtap="deleteImg" class="icon-fksb mainColor close" data-idx="{{index}}"></icon>
+              <image bindtap="previewImg" class="image" src="{{item}}" mode="aspectFit"></image>
+            </view>
+            <view wx:if="{{imgList.length < 4}}" class="imgbox" bindtap="upload">
+              <image class="image" src="../../images/sample/tjtp@3x.png" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="submit mainBgColor" bindtap="cancelOrder">确认</view>
+    </block>
+
+    <block wx:if="{{type == '2'}}">
+      <view class='cancel-order-info'>
+        <!-- <view class="cancel-reason xpk-1px-b">
+          <picker bindchange="bindPickerChange" value="{{reasonArray.reasonName}}" range="{{reasonArray}}" range-key='reasonName'>
+            <view class='reasoninfo'>
+                <input value='取消原因' disabled="disabled"></input>
+                <view class='selreason picker'>
+                  {{selReason}}{{reasonArray[index].reasonName}}<text class='icon-jt'></text>
+                </view>
+            </view>
+          </picker>
+        </view> -->
+        <textarea maxlength='100' bindinput="input" id="detail" placeholder='详细描述（必填）'  placeholder-style="placeholder" value='{{content}}' disabled='disabled'></textarea>
+        <view wx:if="{{frontCancelOrderImages != ''}}" class="upload xpk-1px-t">
+          <view class="title">
+            添加图片
+            <text class="tip">（选填，您最多可以上传4张图片）</text>
+          </view>
+          <view class="imgList">
+            <view wx:for="{{frontCancelOrderImages}}" wx:key="{{index}}" class="imgbox">
+              <image class="image" src="{{item}}" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view bindtap='isMaskShow' class="operation-btns mainBgColor">联系客服
+        <!-- <button open-type='contact'></button> -->
+      </view>
+    </block>
+
+  </label>
+</form>
+
+<!--客服  -->
+<view class='mask kf-mask' wx:if="{{isKfMask}}">
+  <view class='mask-bg' catchtap='isMaskShow'></view>
+  <view class='share'>
+    <view class='title'>请选择 <icon class='icon-gb2' catchtap='isMaskShow'></icon></view>
+    <view class='share-con'>
+      <view class='item'  bindtap='callKf'>
+        <image src='../../images/icons/dhkf@3x.svg'></image>
+        <text>电话客服</text>
+      </view>
+      <view class='item'>
+        <button class='share-btn' open-type='contact'></button>
+        <image src='../../images/icons/zxkf@3x.svg'></image>
+        <text>在线客服</text>
+      </view>
+    </view>
+  </view>
+</view>
+

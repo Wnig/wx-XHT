@@ -1,0 +1,35 @@
+<!--免费开店  -->
+<view class='free-open'>
+  <view class='item shop-logo xpk-1px-b'>
+    <text>店铺logo</text>
+    <image mode='aspectFit' bindtap='upload' class='logo' src="{{imgUrl}}"></image>
+    <icon class='icon-jt'></icon>
+  </view>
+  <view class='item xpk-1px-b' bindtap='inPage' data-url="../freeOpenDetail/freeOpenDetail?len=10&type=open&shopinfo=name&inputval={{shopName}}">
+    <text>店铺名称</text>
+    <text class='conts'>{{shopName}}</text>
+    <icon class='icon-jt'></icon>
+  </view>
+  <view class='item xpk-1px-b' bindtap='inPage' data-url="../freeOpenDetail/freeOpenDetail?len=30&type=open&shopinfo=ad&inputval={{shopAd}}">
+    <text>店铺广告语</text>
+    <text class='conts'>{{shopAd}}</text>
+    <icon class='icon-jt'></icon>
+  </view>
+  <view class='item' bindtap='inPage' data-url="../freeOpenDetail/freeOpenDetail?len=30&type=open&shopinfo=wx&inputval={{shopWx}}">
+    <text>个人微信号</text>
+    <text class='conts'>{{shopWx}}</text>
+    <icon class='icon-jt'></icon>
+  </view>
+</view>
+
+<!--协议  -->
+<view class='compact'>
+  <image src="../../images/icons/tx_xz_l@3x.svg"></image> 
+  提交审核即同意遵守<text class='mainColor'>《欣宏途软件使用协议》</text>
+</view>
+
+<!--下一步  -->
+<text bindtap='enterNext' class='btn mainBgColor'>提交</text>
+
+
+

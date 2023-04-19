@@ -1,0 +1,207 @@
+/*取消订单-详情  */
+.cancel-order-info {
+  padding: 0 30rpx;
+  background: #fff;
+}
+.reasoninfo {
+  display: flex;
+  align-items: center;
+  height: 98rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #222333; 
+}
+.reasoninfo input {
+  flex: 1;
+  width: 60%;
+}
+.selreason {
+  color: #bbb;
+}
+.selpicker {
+  color: #222333;
+}
+.selreason text {
+  color: #bbb;
+  margin: 0 18rpx;
+}
+
+/*详情描述  */
+#detail {
+  width: 100%;
+  padding: 30rpx 0;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #000;
+  line-height: 14px;
+}
+.placeholder{
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #d8d8d8;
+  letter-spacing: 0;
+  line-height: 18px;
+}
+
+/*上传  */
+.upload{
+  padding-top: 30rpx;
+  padding-bottom:60rpx;
+  background: #fff;
+}
+.upload .title{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding-bottom:50rpx;
+}
+
+.upload .title .tip{
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #989898;
+  letter-spacing: 0;
+  line-height: 10px;
+}
+.upload .imgList{
+  display: flex;
+}
+.upload .imgbox{
+  width:120rpx;
+  height:120rpx;
+  margin-right:24rpx;
+  position: relative;
+}
+.upload .imgbox .image{
+  width:100%;
+  height:100%;
+}
+.upload .close{
+  position: absolute;
+  width:32rpx;
+  height:32rpx;
+  border-radius: 50%;
+  right:-15rpx;
+  top:-15rpx;
+  font-size: 16px;
+}
+.submit{
+  width: 650rpx;
+  height: 80rpx;
+  margin: 50px auto 0;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+}
+
+/* 取消详情 */
+.operation-btns {
+  position: relative;
+  width: 650rpx;
+  height: 80rpx;
+  margin: 50px auto 0;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+.operation-btns button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+
+/*分享弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.mask-bg {
+  width: 100%;
+  height: 100%;
+}
+.mask .share {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 456rpx;
+  background: #fff; 
+}
+.mask .title {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #F5F5F5;
+}
+.mask .title icon {
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  line-height: 80rpx;
+  font-size: 18px;
+}
+.mask .share-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 376rpx;
+}
+.mask .item {
+  position: relative;
+  margin: 0 55rpx;
+}
+.kf-mask .item {
+  position: relative;
+  margin: 0 113rpx;
+}
+.mask .item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.mask .item button:after {
+  border: none;
+}
+.mask .item image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 24rpx;
+}
+.mask .item text {
+  display: block;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+

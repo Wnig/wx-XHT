@@ -1,0 +1,115 @@
+<view class='container mainBgColor' wx:if="{{isLoad}}">
+  <form report-submit="true">
+    <button id="postForm" form-type="submit"></button>
+    <label for='postForm'>
+
+      <block wx:if='{{isComplete}}'>
+
+        <view class="wrapper">
+          <!--头部回到首页-活动规则  -->
+          <view class='part0'>
+            <view class='backIndex' bindtap='enterIndex'>
+              <view>回到首页</view>
+              <icon class='icon-fh'></icon>
+            </view>
+            <view class='rule-btn' bindtap='showRule'>
+              <view class='rule-box'>
+                <view>活动规则</view>
+                <icon class='icon-ic_next'></icon>
+              </view>
+            </view>
+          </view>
+
+          <!--减价订单信息  -->
+          <view class='part1'>
+            <view class="commodity" bindtap="enterGood">
+              <view class='pic-discr'>
+                <image src="{{share.skuImage}}" mode="aspectFit" class="cover"></image>
+              </view>
+              <view class="content">
+                <view class="name text-2-eclips">{{share.productName}}</view>
+                <view class="part-bottom">
+                  <text class="price">￥{{(share.realPrice*1000-share.knockPrice*1000)/1000}}</text>
+                  <text class="share">分享{{share.shareTotal}}人砍价，立省{{share.less}}元 ></text>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view wx:if="{{(isOwner&&share.shareNum!=0&&!isEnd)}}" class="friend">快去分享好友帮你砍价</view>
+          <view wx:if="{{!isOwner&&!isHelp&&share.shareNum!=0&&!isEnd}}" class="friend">您的好友"{{share.nickName}}"，邀请您帮TA砍价</view>
+          <view wx:if="{{!isOwner&&isHelp&&share.shareNum!=0&&!isEnd}}" class="friend">您已帮好友"{{share.nickName}}"砍价{{share.knockAveragePrice}}元</view>
+          <view wx:if="{{!isOwner&&share.shareNum==0}}" class="friend">您的好友"{{share.nickName}}"已砍价成功</view>
+          <view wx:if="{{!isOwner&&share.shareNum!=0&&isEnd}}" class="friend">您的好友"{{share.nickName}}"已砍价失败</view>
+          <view wx:if="{{isOwner&&share.shareNum==0}}" class="friend">恭喜您已砍价成功</view>
+          <view wx:if="{{isOwner&&share.shareNum!=0&&isEnd}}" class="friend">很遗憾，砍价失败了</view>
+          <!-- <text wx:if="{{isOwner&&share.shareNum!=0&&!isEnd}}" decode="true" class="friend">&emsp;</text> -->
+          <button wx:if="{{!isOwner&&!isHelp&&!isEnd&&share.shareNum!=0}}" class="help-btn" open-type="getUserInfo" bindgetuserinfo="helpKnockPrice">
+            帮TA砍价{{share.knockAveragePrice}}元
+          </button>
+          <button wx:if="{{(!isOwner&&isEnd)||(!isOwner&&share.shareNum==0)||(!isOwner&&isHelp)}}" class="help-btn" bindtap="enterGood">
+            我也要砍价购买
+          </button>
+          <button wx:if="{{(isOwner&&share.shareNum==0)||(isOwner&&!isEnd)}}" class="help-btn" open-type="share" bindgetuserinfo="helpKnockPrice">
+            立即分享好友
+          </button>
+          <button wx:if="{{isOwner&&share.shareNum!=0&&isEnd}}" class="help-btn" bindtap="enterGood">
+            再次砍价购买
+          </button>
+
+          <!-- 分享时间未到期显示 -->
+          <view wx:if="{{share.shareNum!=0&&!isEnd}}" class="rest-time">
+            <text>{{share.restTimeArr[0]}}:{{share.restTimeArr[1]}}:{{share.restTimeArr[2]}}后结束，还差</text>
+            <text class="num">{{share.shareNum}}</text>
+            <text>人减价</text>
+          </view>
+          <!-- 其他情况 -->
+          <view wx:else class="rest-time">
+            <text decode="true">&emsp;</text>
+          </view>
+          <view class="friends-container">
+            <view class="title">
+              <image class="line" src="../../images/icons/lineleft.png" mode="widthFix"></image>
+              <text class="text">好友帮</text>
+              <image class="line" src="../../images/icons/lineright.png" mode="widthFix"></image>
+            </view>
+            <view class="item" wx:for="{{friendsGang}}" wx:key="{{index}}" wx:if="{{index < 2}}">
+              <image src="{{item.avatarUrl}}" mode="widthFix" class="avatar"></image>
+              <text class="name">{{item.nickName}}</text>
+              <text class="money">减价{{item.knockAveragePrice}}元</text>
+            </view>
+            <view class="more" wx:if="{{friendsGang.length>2}}" bindtap="enterMore">
+              <text class="text">查看更多</text>
+              <text class="icon-jt"></text>
+            </view>
+          </view>
+          <view class="recommend" wx:if="{{adImageList.length}}">
+            <view class="title">热门推荐</view>
+            <view class="item" wx:for="{{adImageList}}" wx:key="{{index}}">
+              <image bindtap="enterAd" data-type="{{item.type}}" data-content="{{item.content}}"  src="{{item.imageId}}" lazy-load="{{true}}" mode='aspectFill'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </label>
+  </form>
+</view>
+
+<!--弹窗  -->
+<view class='mask' wx:if="{{showRuleModal}}">
+  <view class='tips'>
+    <view class='tips-con'>
+      <view class="tit xpk-1px-b">
+        活动规则
+        <icon bindtap='showRule' class='icon-fksb'></icon>
+      </view>
+      <view class='content'>
+        <view class='p'><view class="num mainBgColor">1</view>购买后，在24小时内将页面转发给好友，好友帮忙砍价，每一个好友可砍价一次。</view>
+          <view class='p'><view class="num mainBgColor">2</view>如果按照要求完成分享砍价人数，则砍价成功。</view>
+          <view class='p'><view class="num mainBgColor">3</view>如果没有按照要求完成分享砍价人数，则砍价失败，并且原路退回金额。</view>
+          <view class='p'><view class="num mainBgColor">4</view>参与的用户若存在不正当行为（包括但不限于恶意刷单、分享），平台有权取消恶意用户的参与活动资格，必要时平台有权暂停或取消本次活动。</view>
+      </view>
+    </view>
+    <view bindtap='showRule' class='ok mainColor xpk-1px-t'>知道了</view>
+  </view>
+</view>

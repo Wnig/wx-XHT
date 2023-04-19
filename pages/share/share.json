@@ -1,0 +1,6 @@
+{
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#64A5FF",
+  "navigationBarTitleText": "分享砍价",
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,105 @@
+/*提现  */
+
+.detail-list {
+  padding: 0 30rpx;
+  background: #fff;
+}
+.detail-list .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+}
+.detail-list image {
+  width: 84rpx;
+  height: 84rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+}
+.detail-list .item text {
+  display: block;
+}
+.detail-list .item .part1 {
+  flex: 1;
+  color: #070707;
+  font-size: 14px;
+  font-family: 'PingFangSC-Light';
+}
+.detail-list .item .time {
+  margin-top: 10rpx;
+  opacity: 0.4;
+  color: #070707;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+.detail-list .item .part2 {
+  color: #000000;
+  text-align: right;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+.detail-list .item .money {
+  margin-bottom: 10rpx;
+  color: #333333;
+  font-size: 18px;
+  font-family: 'PingFangSC-Medium';
+}
+
+.detail-list .item .fail {
+  color: #FF0000;
+} 
+
+.detail-list .item .checking {
+  color: #FF972C;
+}
+
+.no-more {
+  padding-bottom: 40rpx;
+  text-align: center;
+}
+
+.no-more > .line {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80rpx;
+  height: 1px;
+  background: #AAA;
+}
+
+.no-more > .text {
+  margin: 0 30rpx;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 60rpx;
+  color: #AAA;
+}
+
+.no {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 180rpx;
+}
+
+.no > .icon {
+  margin-bottom: 30rpx;
+  width: 300rpx;
+}
+
+.no > .text {
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: -0.3px;
+  line-height: 30rpx;
+}
+
+.no-more {
+  padding-bottom: 10rpx;
+  opacity: 0.3;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #222333;
+  line-height: 90rpx;
+  text-align: center;
+}

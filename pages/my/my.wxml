@@ -1,0 +1,58 @@
+<!-- 头部-头像 -->
+<view class='head'>
+  <image class='avatar' mode='widthFix' src='{{user?user.avatarUrl:"https://tour.xinhongt.com/photoServer/xht/zc_mrtx@3x.svg"}}'></image>
+  <view class='side' wx:if='{{user}}'>
+    <text>{{user.nickName}}</text>
+    <text wx:if='{{user.phone}}'>账号：{{user.phone}}</text>
+    <view class='write-phone' wx:else>
+      <text class='text'>填写手机号码</text>
+      <text class='icon-jt icon'></text>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>  
+    </view>
+  </view>
+  <view class='no-user' wx:else>
+    <text class='text'>微信登录</text>
+    <view class='button' data-url='../login/login?page=my' bindtap='enterPage'></view>
+  </view>
+</view>
+
+<!--个人中心-列表  -->
+<view class='group'>
+  <view class='cell xpk-1px-b' bindtap='enterPage' data-url='../collection/collection'>
+    <text class='icon-wddd icon'></text>
+    <text class='text'>我的收藏</text>
+    <text class='icon-jt'></text>
+  </view>
+  <view class='cell xpk-1px-b' bindtap='isMaskShow'>
+    <text class='icon-gfkf icon'></text>
+    <text class='text'>官方客服</text>
+    <text class='icon-jt'></text>
+  </view>
+  <view class='cell' bindtap='enterPage' data-url='../about/about'>
+    <text class='icon-bz icon'></text>
+    <text class='text'>关于我们</text>
+    <text class='icon-jt'></text>
+  </view>
+</view>
+
+<!--版本号  -->
+<view class='edition'>版本号V{{versions}}</view>
+
+<!--客服  -->
+<view class='mask' wx:if="{{isMask}}">
+  <view class='mask-bg' catchtap='isMaskShow'></view>
+  <view class='share'>
+    <view class='title'>请选择 <icon class='icon-gb2' catchtap='isMaskShow'></icon></view>
+    <view class='share-con'>
+      <view class='items'  bindtap='callKf'>
+        <image src='../../images/icons/dhkf@3x.svg'></image>
+        <text>电话客服</text>
+      </view>
+      <view class='items'>
+        <button class='share-btn' open-type='contact'></button>
+        <image src='../../images/icons/zxkf@3x.svg'></image>
+        <text>在线客服</text>
+      </view>
+    </view>
+  </view>
+</view>

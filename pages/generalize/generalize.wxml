@@ -1,0 +1,49 @@
+<!--推广订单  -->
+<view wx:if="{{isLoad}}">
+  <block wx:if="{{list.length}}">
+    <view class='detail-list' wx:for="{{list}}" wx:key="{{item}}">
+      <view class='item xpk-1px-b'>
+        <image src='{{item.avatarImageUrl}}'></image>
+        <view class='part1'>
+          <view>
+            <text class='detail text-1-eclips'>{{item.nickName}}</text>带来一笔订单
+          </view>
+          <text class='time'>{{item.createDate}}</text>
+        </view>
+        <view class='part2'>
+          <text class='money'>+{{item.clearAmountTotal}}</text>
+          <text class='{{item.clearingStatusName == "待结算" ? "checking" : ""}}'>{{item.clearingStatusName}}</text>
+        </view>
+      </view>
+      <view class='commodity'>
+        <view class='part1'>
+          <view class='pic-discr'>
+            <image src='{{item.listCoverImage}}' mode='aspectFill' class='cover'></image>
+            <text>{{item.departure == '多地出发' ? item.departure : item.departure + '出发'}}</text>
+          </view>
+          <view class='content'>
+            <view class='content-info'>
+              <view class='name text-2-eclips'>{{item.productName}}</view>
+              <view class='starting-time'>{{item.departure_date}}出发</view>
+              <view class='bottom'>
+                <!-- <view class='price'> -->
+                  <text class='money'>￥{{item.realAmount}}</text>
+                  <text class='reduce' wx:if="{{item.type == '0'}}">分享{{item.shareTotal}}人砍价，立省{{item.less}}元</text>
+              <!-- </view> -->
+              <text class='num'>x {{item.num}}</text>
+            </view>
+          </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view> 
+  </block>
+
+  <view wx:else class='no'>
+    <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+    <text class='text'>暂无推广订单</text>
+  </view> 
+</view>
+

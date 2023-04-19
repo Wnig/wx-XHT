@@ -1,0 +1,374 @@
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 100%;
+}
+
+.container .wrapper {
+  min-height: 100%;
+  /* padding: 30rpx 30rpx 0; */
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display:none;
+  width: 0;
+}
+
+.wrapper > .part0 {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper > .part0 .backIndex{
+  box-sizing: border-box;
+  height: 28px;
+  line-height: 28px;
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  width:82px;
+  display: flex;
+  justify-content: center;
+  background: #FF972C;
+  color: #fff;
+  font-size: 12px;
+  flex-direction: row-reverse;
+}
+.wrapper > .part0 .backIndex view{
+  line-height: 28px;
+  font-size: 12px;
+}
+.wrapper .part0 .backIndex icon {
+  display: flex;
+  align-items: center;
+  margin-right: 12rpx;
+  line-height: 28px; 
+  font-size: 12px;
+}
+
+.wrapper > .part0 view:first-child{
+  padding-right:3px;
+}
+
+
+.wrapper > .part0 .rule-btn{
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.wrapper > .part0 .rule-box{
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:22px;
+  width: 78px;
+  background: #FFC86C;
+  border: 2px solid #FFA000;
+  border-radius: 100px;
+}
+.wrapper > .part0 .rule-box>view{
+  font-size: 11px;
+  color: #FFFFFF;
+  line-height: 22px;
+}
+.wrapper > .part0 .rule-box>icon {
+  font-size: 24px;
+  line-height: 22px;
+}
+.wrapper > .part0 .rule-box>.icon-hdgz{
+  font-size: 12px;
+  color: #FFFFFF;
+  line-height: 22px;
+}
+
+
+
+
+.wrapper > .part1 {
+  padding: 0rpx 30rpx;
+  background: url('https://mall.xpaik.com/photoServer/xpaikmall/zs1@3x.png');
+  background-size: 100% 100%;
+}
+
+.commodity {
+  display: flex;
+  align-items: center;
+  background: #FFF;
+  border-radius: 4px;
+  padding: 30rpx 24rpx 30rpx 30rpx;
+}
+
+.commodity .pic-discr .cover {
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  background:url('https://mall.xpaik.com/photoServer/xpaikmall/detail-bj.jpg');
+}
+
+.commodity > .content {
+  flex: 1;
+  padding-left: 18rpx;
+}
+
+.commodity .pic-discr {
+  position: relative;
+  margin-right: 18rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.29);
+}
+
+.commodity > .content > .name {
+  height: 36px;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #222333;
+  line-height: 36rpx;
+}
+
+.commodity > .content > .part-bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+}
+
+.commodity > .content > .part-bottom > .price {
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #222333;
+  line-height: 28rpx;
+}
+
+.commodity > .content > .part-bottom > .share {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFA816;
+  line-height: 28rpx;
+}
+
+.friend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* line-height: 120rpx; */
+  min-height: 30rpx;
+  width: 90%;
+  margin:  20rpx auto;
+  box-sizing: border-box;
+  text-align: center;
+  color: #FFF;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  background: url('https://mall.xpaik.com/photoServer/xpaikmall/zs2@3x.png');
+  background-size: 100% 100%;
+}
+
+.help-btn {
+  margin: 0 30rpx;
+  border-radius: 4px;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+  color: #fff;
+  line-height: 90rpx;
+  outline: 0;
+  border: 0;
+  background-color: #FF972C;
+}
+
+.rest-time {
+  text-align: center;
+  height: 76rpx;
+}
+
+.rest-time > text {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: -0.29px;
+  line-height: 76rpx;
+}
+
+.rest-time > .num {
+  margin: 0 5rpx;
+  color: #F8E71C;
+}
+
+.friends-container {
+  margin: 0 30rpx;
+  padding-bottom: 24rpx;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 4px;
+}
+
+.friends-container > .title {
+  padding: 32rpx 0 2rpx;
+  text-align: center;
+}
+
+.friends-container > .title > .line {
+  vertical-align: middle;
+  width: 216rpx;
+}
+
+.friends-container > .title > .text {
+  display: inline-block;
+  margin: 0 34rpx;
+  vertical-align: middle;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #FFFFFF;
+  line-height: 32rpx;
+}
+
+.friends-container > .item {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+}
+
+.friends-container > .item > .avatar {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+}
+
+.friends-container > .item > .name {
+  flex: 1;
+  margin: 0 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 28rpx;
+}
+
+.friends-container > .item > .money {
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #F8E71C;
+  line-height: 24rpx;
+}
+
+.more {
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.more > .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FFFFFF;
+  line-height: 32rpx;
+}
+
+.more > .icon-jt {
+  margin-left: 16rpx;
+  vertical-align: middle;
+  font-size: 10px;
+  color: #FFF;
+}
+
+.recommend {
+  padding-bottom: 20rpx;
+}
+
+.recommend > .title {
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  background: url('https://mall.xpaik.com/photoServer/xpaikmall/zs3@3x.png');
+  background-size: 100% 100%;
+  color: #FFFFFF;
+  line-height: 112rpx;
+  text-align: center;
+}
+
+.recommend > .item {
+  margin: 0 30rpx 20rpx;
+  padding: 10rpx;
+  background: #FFF;
+  border-radius: 4px;
+}
+
+.recommend > .item > image {
+  width: 100%;
+}
+
+/*弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mask .tips {
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 6px;
+}
+.mask .tips-con {
+  padding: 0 15px;
+}
+.mask .tit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1C1C1C;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.mask .tit icon {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  color: #D8D8D8;
+  line-height: 50px;
+  font-size: 20px;
+}
+.mask .tips .content {
+  padding: 25px 0;
+  color: #666666;
+  line-height: 18px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.mask .tips .ok {
+  color: #64A5FF;
+  text-align: center;
+  line-height: 44px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.mask .content .p {
+  position: relative;
+  margin-bottom: 24rpx;
+  padding-left: 38rpx;
+}
+.mask .content .num {
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+  text-align: center;
+  line-height: 24rpx;
+  font-size: 10px;
+  font-family: 'PingFangSC-Regular';
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "欣宏途旅游",
+  "navigationBarBackgroundColor": "#64A5FF",
+  "navigationBarTextStyle": "#fff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f5f5f5"
+}

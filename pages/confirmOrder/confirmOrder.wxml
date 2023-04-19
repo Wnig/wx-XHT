@@ -1,0 +1,90 @@
+<view wx:if="{{isLoad}}">
+  <!--联系方式  -->
+  <image src='../../images/icons/zs@3x.svg' style='width: 100%;background: #FFF;' mode='widthFix'></image>
+  <view class='contact-info'>
+    <view class='name xpk-1px-b'>
+      <input type='text' placeholder='请填写联系人姓名' maxlength='10' value='{{name}}' data-type="name" bindinput='inputVal'></input>
+    </view>
+    <view class='tel xpk-1px-b'>
+      <input type='number' maxlength='11' placeholder='请填写联系人手机号（用于短信通知）' value='{{phone}}' data-type="phone" bindinput='inputVal'></input>
+    </view>
+    <view class='mail'>
+      <input type='text' maxlength='32' placeholder='请填写联系人邮箱' value="{{email}}" data-type="email" bindinput='inputVal'></input>
+    </view>
+  </view>
+
+  <!--微信支付  -->
+  <view class='wx-pay'>
+    <icon class='icon-ddzf_wx logo'></icon>
+    <text class='part2'>微信支付</text>
+    <image class='icon' src="../../images/icons/tx_xz@3x.svg"></image>
+  </view>
+
+  <!--订单信息  -->
+  <view class='commodity'>
+    <view class='part2 xpk-1px-b'>
+      <image class='ico' src="../../images/sample/th@3x.svg"></image>{{meal}}
+    </view>
+    <view class='part1 xpk-1px-b'>
+      <view class='pic-discr'>
+        <image src='{{order.listCoverImage}}' mode='widthFix' class='cover'></image>
+        <text>{{departure_ == '多地出发' ? departure_ : departure_ + '出发'}}</text>
+      </view>
+     
+      <view class='content'>
+        <view>
+          <view class='name text-2-eclips'>{{order.name}}</view>
+          <view class='starting-time'>{{departure_date}}出发</view>
+          <view class='bottom'>
+            <view class='price'>
+              <text class='num'>￥{{realPrice}}</text>
+              <text class='reduce' wx:if="{{type == '0'}}">分享{{order.shareNum}}人，立省{{order.less}}元</text>
+            </view>
+          </view> 
+        </view>
+      </view>
+    </view>
+    <view class='part3'>
+      <view class='prices-con'>
+        <text wx:if="{{adultNum != '0'}}" class='adult-num'>成人(￥{{aPrice}})x {{adultNum}} </text>
+        <text wx:if="{{childNum != '0'}}" class='child-num'>儿童 (￥{{cPrice}})x {{childNum}}</text>
+      </view>
+      <view class='total'>合计￥{{realAmount}}</view>
+    </view>
+  </view>
+
+  <!--合同  -->
+  <view class='compact'>
+    <image class='icon' src="../../images/icons/tx_xz@3x.svg"></image>
+    <text>购买即同意《欣宏途旅游合同》</text>
+  </view>
+
+  <!--活动规则  -->
+  <view wx:if="{{type == 0}}" class='rule' bindtap='tipsRule'>
+    活动规则 <icon class='icon-ic_next'></icon>
+  </view>
+
+  <!--弹窗  -->
+  <view class='mask' wx-if="{{tipShow && type == 0}}">
+    <view class='tips'>
+      <view class='tips-con'>
+        <view class="tit xpk-1px-b">
+          温馨提示
+          <icon bindtap='tipsRule' class='icon-fksb'></icon>
+        </view>
+        <view class='content'>
+          <view class='p'><view class="num mainBgColor">1</view>购买后，在24小时内将页面转发给好友，好友帮忙砍价，每一个好友可砍价一次。</view>
+          <view class='p'><view class="num mainBgColor">2</view>如果按照要求完成分享砍价人数，则砍价成功。</view>
+          <view class='p'><view class="num mainBgColor">3</view>如果没有按照要求完成分享砍价人数，则砍价失败，并且原路退回金额。</view>
+          <view class='p'><view class="num mainBgColor">4</view>参与的用户若存在不正当行为（包括但不限于恶意刷单、分享），平台有权取消恶意用户的参与活动资格，必要时平台有权暂停或取消本次活动。</view>
+        </view>
+      </view>
+      <view bindtap='tipsRule' class='ok mainColor xpk-1px-t'>知道了</view>
+    </view>
+  </view>
+
+  <view class='footer'>
+    <view class='price'>实付:￥{{realAmount}}</view>
+    <view class='btn mainBgColor' bindtap='goPlay'>去支付</view>
+  </view>
+</view>

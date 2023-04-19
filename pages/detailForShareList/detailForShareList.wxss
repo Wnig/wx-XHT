@@ -1,0 +1,61 @@
+/* page {
+  background: #FFF;
+} */
+
+.sub-container {
+  background: #FFF;
+}
+
+.sub-container > .item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 30rpx;
+}
+
+.sub-container > .item > .part1 {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+}
+
+.sub-container > .item > .part2 {
+  flex: 1;
+  margin-left: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #000000;
+  line-height: 28rpx;
+}
+
+.sub-container > .item > .part3 {
+  text-align: center;
+}
+
+.sub-container > .item > .part3 > .top {
+  margin-bottom: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #000000;
+  line-height: 12px;
+}
+
+.sub-container > .item > .part3 > .top > .theme-text {
+  color: #FFA816;
+}
+
+.sub-container > .item > .part3 > .bottom {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #AAAAAA;
+  line-height: 10px;
+}
+
+.no-more {
+  padding-bottom: 10rpx;
+  opacity: 0.3;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #222333;
+  line-height: 90rpx;
+  text-align: center;
+}

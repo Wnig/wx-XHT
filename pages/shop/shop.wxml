@@ -1,0 +1,101 @@
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+
+    <view wx:if="{{isLoad}}">
+      <!--我的店铺  -->
+      <view class='my-wallet'>
+        <view class='money-con' data-url='../myWallet/myWallet' bindtap='enterPage'>
+          <view class='money'>
+            <text class='part1'>¥</text>
+            <text class='part2'>{{shopDataList.amount == '' ? 0: shopDataList.amount}}</text>
+          </view>
+          <view class="withdraw">可提现金额 ></view>
+        </view>
+      </view> 
+
+      <!--推广-粉丝-开店  -->
+      <view class='data-list'>
+        <view class="list" bindtap='enterPage' data-url='../generalize/generalize'>
+          <view class='item xpk-1px-b'>
+              <text>{{shopDataList.promoteOrderTotal ? shopDataList.promoteOrderTotal : 0}}</text>
+              <text class='dis'>推广订单（笔）</text>
+          </view>
+          <view class='bor xpk-1px-r'></view>
+          <view class='item xpk-1px-b'>
+              <text>{{shopDataList.accumulativeOrderTotal ? shopDataList.accumulativeOrderTotal : 0}}</text>
+              <text class='dis'>累计总额（元）</text>
+          </view>
+        </view>
+        <view class="list" bindtap='enterPage' data-url='../myFans/myFans?shopid={{shopDataList.userShopId}}'>
+          <view class='item xpk-1px-b'>
+              <text>{{shopDataList.currentMonthNewFansTotal ? shopDataList.currentMonthNewFansTotal : 0}}</text>
+              <text class='dis'>本月新增粉丝</text>
+          </view>
+          <view class='bor xpk-1px-r'></view>
+          <view class='item xpk-1px-b'>
+              <text>{{shopDataList.accumulativeFansTotal ? shopDataList.accumulativeFansTotal : 0}}</text>
+              <text class='dis'>累计粉丝</text>
+          </view>
+        </view>
+        <view class="list" bindtap='enterPage' data-url='../myFriendShop/myFriendShop'>
+          <view class='item'>
+              <text>{{shopDataList.currentMonthNewShopTotal}}</text>
+              <text class='dis'>本月新增开店</text>
+          </view>
+          <view class='bor xpk-1px-r'></view>
+          <view class='item'>
+              <text>{{shopDataList.accumulativeShopTotal}}</text>
+              <text class='dis'>累计开店</text>
+          </view>
+        </view>
+      </view>
+
+      <!--明细列表  -->
+      <view class='detail-list'>
+        <view class='item xpk-1px-b' data-shopid="{{shopDataList.userShopId}}" data-url="../todayBifa/todayBifa" bindtap='enterPage'>
+          <image class='icon' src="../../images/sample/jlmx@3x.svg"></image>
+          <text>今日必发素材</text>
+          <icon class='icon-jt'></icon>
+        </view>
+        <view class='item xpk-1px-b' bindtap='maskShow'>
+          <image class='icon' src="../../images/sample/yqhy@3x.svg"></image>
+          <text>邀请好友开店</text>
+          <icon class='icon-jt'></icon>
+        </view>
+        <view class='item xpk-1px-b' data-url="../myShop/myShop" bindtap='enterPage'>
+          <image class='icon' src="../../images/sample/dp@3x.svg"></image>
+          <text>我的店铺</text>
+          <icon class='icon-jt'></icon>
+        </view>
+        <view class='item' data-url="../howTo/howTo" bindtap='enterPage'>
+          <image class='icon' src="../../images/sample/tjzq@3x.png"></image>
+          <text>如何推广赚钱</text>
+          <icon class='icon-jt'></icon>
+        </view>
+      </view>
+
+      <!--分享  -->
+      <view class='mask' wx:if="{{isMask}}">
+        <view class='mask-bg' catchtap='maskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+          <view class='share-con'>
+            <view class='item'>
+              <button class='share-btn' open-type="share"></button>
+              <image src='../../images/icons/wx@3x.svg'></image>
+              <text>生成链接，发送好友</text>
+            </view>
+            <view class='item' catchtap="share">
+              <image src='../../images/icons/sc@3x.svg'></image>
+              <text>生成图片，发朋友圈</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+    </view>
+    
+  </label>
+</form>

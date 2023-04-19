@@ -1,0 +1,103 @@
+/*绑定信息  */
+.tips {
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 72rpx;
+  font-size: 12px;
+  font-family: PingFangSC-Regular;
+  background: #818181;
+}
+.info-list {
+  padding-left: 40rpx;
+  background: #fff;
+}
+.info-list input {
+  height: 100rpx;
+  color: #000; 
+  line-height: 100rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+
+.info-list .bankinfo {
+  display: flex;
+  height: 100rpx;
+  color: #818181; 
+  line-height: 100rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.info-list .bankinfo input {
+  flex: 1;
+  width: 60%;
+  color: #818181;
+}
+.info-list .selbank {
+  width: 40%;
+  margin-right: 40rpx;
+  text-align: right;
+}
+.info-list .selbank text {
+  margin-left: 24rpx;
+}
+.info-list .codeinfo {
+  display: flex;
+}
+.info-list .codeinfo input {
+  flex: 1;
+  width: 60%;
+  color: #818181;
+}
+.getcode {
+  width: 40%;
+  margin-right: 40rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #000000;
+  text-align: right;
+  line-height: 100rpx;
+}
+.sendcode {
+  width: 40%;
+  margin-right: 40rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #989A9C;
+  text-align: right;
+  line-height: 100rpx;
+}
+
+/*协议  */
+.compact {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  margin-top: 90rpx;
+  padding: 0 30rpx;
+  color: #A8A8A8;
+  line-height: 60rpx;
+  font-size: 12px;
+  font-family: 'PingFangSC-Light';
+}
+.compact image {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+.compact icon {
+  margin-right: 16rpx;
+  line-height: 60rpx;
+  font-size: 16px;
+}
+
+.btn {
+  width: 650rpx;
+  height: 80rpx;
+  margin: 158rpx auto 0;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 15px;
+  font-family: 'PingFangSC-Regular';
+}

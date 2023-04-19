@@ -1,0 +1,340 @@
+/*订单详情  */
+.order-info {
+  margin-bottom: 14rpx;
+  padding: 30rpx 30rpx 0 30rpx;
+  background: #fff;
+}
+.order-info view {
+  line-height: 60rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.order-info .price {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  margin-top: 28rpx;
+  line-height: 100rpx;
+}
+
+.order-info .red {
+  color: #f00;
+}
+
+/* commodity */
+.commodity {
+    margin-bottom: 14rpx;
+    padding: 0 30rpx;
+    background: #FFF;
+}
+.commodity>.part1 {
+    display: flex;
+    padding: 30rpx 0;
+}
+.commodity>.part1>.cover {
+    width: 176rpx;
+    height: 176rpx;
+    background: 'url('+var(--imgDomain)+'/detail-bj.jpg)';
+}
+.commodity>.part1>.content {
+    flex: 1;
+    margin-left: 30rpx;
+    overflow: hidden;
+}
+.commodity>.part1>.content>.name {
+    height: 64rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 32rpx;
+}
+.commodity>.part1>.content .starting-time {
+  margin-top: 10rpx;
+  opacity: 0.4;
+  color: #333333;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.commodity>.part1>.content>.bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 18rpx;
+}
+.commodity>.part1>.content>.bottom>.price {
+    flex: 1;
+}
+.commodity>.part1>.content>.bottom>.price>.num {
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #000000;
+    line-height: 32rpx;
+}
+.commodity>.part1>.content>.bottom>.price>.reduce {
+    margin-left: 12rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFA816;
+    line-height: 28rpx;
+}
+.commodity>.part1>.content>.bottom>.num {
+    opacity: 0.6;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 28rpx;
+}
+.commodity .part2 {
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+    color: #222333;
+    font-size: 14px;
+    font-family: 'PingFangSC-Regular';
+}
+.commodity .part2 .ico {
+  display: inline-block;
+  width: 30rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+.commodity .part2 .text {
+    flex: 1;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 28rpx;
+}
+.commodity>.part2>.cost {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 96rpx;
+}
+.commodity>.part3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96rpx;
+  color: #000000;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.commodity>.part3 .prices {
+  flex: 1;
+}
+.commodity>.part3 text {
+  margin: 0 25rpx;
+}
+.commodity>.part3 .total {
+  text-align: right;
+}
+
+.pic-discr {
+  position: relative;
+  border-radius: 4rpx;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.29);
+}
+
+.pic-discr image {
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+}
+.pic-discr text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 20px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/*用户信息-下单金额-支付方式  */
+.user-info {
+  margin-bottom: 14rpx;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+.user-info .item {
+  color: #222333;
+  line-height: 40rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.user-info .user-tel {
+  height: 80rpx;
+  margin-bottom: 20rpx;
+  line-height: 80rpx;
+}
+.user-info .user-tel .name {
+  margin-right: 50rpx;
+}
+
+/*服务  */
+.service {
+  padding: 30rpx;
+  background: #fff;
+}
+.service .ser-time {
+  margin-bottom: 18rpx;
+  color: #101115;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.service .ser-time text {
+  color: #999;
+}
+.service .service-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service .service-btn view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 328rpx;
+  border: 1px solid #7F7F7F;
+  border-radius: 2px;
+  color: #333333;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.service .service-btn .kf {
+  position: relative;
+  margin-right: 32rpx;
+}
+.service .service-btn icon {
+  margin-right: 16rpx;
+  line-height: 68rpx;
+  font-size: 16px;
+}
+
+.kf button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+.price .relprice {
+  flex: 1;
+}
+.order-info .operation-btns {
+  position: relative;
+  padding: 0 24rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 2px;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+}
+.order-info .cancel-btn {
+  color: #000;
+  margin-right: 24rpx;
+  border: 1rpx solid #000;
+  border-radius: 4px;
+}
+.order-info .operation-btns button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+
+
+/*分享弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.mask-bg {
+  width: 100%;
+  height: 100%;
+}
+.mask .share {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 456rpx;
+  background: #fff; 
+}
+.mask .title {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #F5F5F5;
+}
+.mask .title icon {
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  line-height: 80rpx;
+  font-size: 18px;
+}
+.mask .share-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 376rpx;
+}
+.mask .item {
+  position: relative;
+  margin: 0 55rpx;
+}
+.kf-mask .item {
+  position: relative;
+  margin: 0 113rpx;
+}
+.mask .item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.mask .item button:after {
+  border: none;
+}
+.mask .item image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 24rpx;
+}
+.mask .item text {
+  display: block;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+

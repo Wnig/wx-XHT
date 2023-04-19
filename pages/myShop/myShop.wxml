@@ -1,0 +1,129 @@
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+
+    <view wx:if="{{isLoad}}">
+      <!--我的店铺  -->
+      <view class='my-shop mainBgColor'>
+        <view wx:if="{{isShoper}}" class='share-btn' bindtap='maskShow'>分享店铺</view>
+        <view wx:if="{{isShoper}}" bindtap='enterPage'  data-url='../setingShop/setingShop' class='my-shop-con'>
+          <image mode='aspectFit' src='{{userShopInfo.logoImageId}}'></image>
+          <view class='shop-info'>
+            <view class='shop-name'>{{userShopInfo.shopName}}</view>
+            <view class='shop-ad'>{{userShopInfo.adContent}}</view>
+          </view>
+          <icon class='icon-jt'></icon>
+        </view>
+        <view wx:else class='my-shop-con'>
+          <image mode='aspectFit' src='{{userShopInfo.logoImageId}}'></image>
+          <view class='shop-info'>
+            <view class='shop-name'>{{userShopInfo.shopName}}</view>
+            <view class='shop-ad'>{{userShopInfo.adContent}}</view>
+          </view>
+        </view>
+      </view>
+
+      <block wx:if="{{productList.length}}">
+        <!--商品列表  -->
+        <!-- 自营产品-自买省钱-分享赚钱 -->
+        <view class='ser-promise'>
+          <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms1}}</text></view>
+          <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms2}}</text></view>
+          <view class='item'><icon class='icon-tj'></icon><text>{{serviceTerms.serviceTerms3}}</text></view>
+        </view>
+
+        <!-- 每日优选 -->
+        <view class='classify'>
+          <view class='menu clearfix'>
+            <view class='item' wx:for='{{categoryList}}' wx:key='{{index}}' bindtap='enterPageClass' data-data='{{item}}' data-ishop="{{isShoper ? 'yes': 'no'}}">
+              <image lazy-load="{{true}}" class='pic' mode='scaleToFill' src='{{item.categoryCoverImage}}'></image>
+              <text class='text text-1-eclips'>{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!--人气推荐  -->
+        <view class='commoduty'>
+          <view class='title'>
+            <view class='part1'>
+              <text class='line'></text>
+              <text class='text'>人气推荐</text>
+              <text class='line'></text>
+            </view>
+            <view class='part2 mainBgColor'>{{classifyMenuLabel}}</view>
+          </view>
+          <view class='container'>
+            <view bindtap='enterDetail' class='list clearfix {{productList.length-1 == index? "" : "xpk-1px-b"}}' wx:for="{{productList}}" wx:key="item" data-id='{{item.id}}' data-ishop="{{isShoper ? 'yes' : 'no'}}">
+              <view class='pic-discr'>
+                <image lazy-load="{{true}}" mode='aspectFill' src="{{item.listCoverImage}}"></image>
+                <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+              </view>
+              <view wx:if="{{isShoper}}" class='info-con'>
+                <view class='info-cons'>
+                  <text class='info-tit text-2-eclips'>{{item.name}}</text>
+                  <view class='info-price'>
+                    <text wx:if="{{isShoper}}" class='price shop-price'>价格:￥{{item.realPrice}}</text>
+                    <text wx:else class='price'>￥{{item.realPrice}}</text>
+                  </view>
+                  <view wx:if="{{item.minCommission == item.maxCommission}}" class='commiss-con'>
+                      佣金：<text>￥{{item.maxCommission}}</text>
+                  </view>
+                  <view wx:else class='commiss-con'>
+                      佣金：<text>¥{{item.minCommission}}~￥{{item.maxCommission}}</text>
+                  </view>
+                </view>
+              </view>
+              <view wx:else class='info-con'>
+                <view class='info-cons'>
+                    <text class='info-tit text-2-eclips'>{{item.name}}</text>
+                    <text class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+                    <view class='info-price'>
+                      <text class='price'>￥{{item.realPrice}}</text>
+                      <text wx:if="{{item.less != ''}}" class='reduce'>立省{{item.less}}元</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+          </view>
+        </view> 
+
+        <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+      </block>
+
+      <view wx:else class='no-render'>
+        <image src='../../images/icons/ej_kym@3x.svg' mode='aspectFit' class='icon'></image>
+        <text class='text'>暂无商品</text>
+      </view>
+
+      <!--开店提示  -->
+      <view class='open-shop-tips' wx:if="{{!isShoper && !isopen}}">
+        <image src="../../images/sample/logo@3x.png"></image>
+        <text>“免费开店日赚1000元”</text>
+        <view class='open-shop-btn mainBgColor' data-url="../creatingShop/creatingShop" bindtap='enterOpen'>马上开店</view>
+      </view>
+
+      <!--分享  -->
+      <view class='mask' wx:if="{{isMask}}">
+        <view class='mask-bg' catchtap='maskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+          <view class='share-con'>
+            <view class='item'>
+              <button class='share-btn' open-type="share"></button>
+              <image src='../../images/icons/wx@3x.svg'></image>
+              <text>生成链接，发送好友</text>
+            </view>
+            <view class='item' catchtap="share">
+              <image src='../../images/icons/sc@3x.svg'></image>
+              <text>生成图片，发朋友圈</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+
+    </view>
+
+  </label>
+</form>

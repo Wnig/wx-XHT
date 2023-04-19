@@ -1,0 +1,135 @@
+<!-- 头部菜单 -->
+<view class='menu'>
+  <view class='main'>
+    <view wx:for='{{menu}}' wx:key='{{index}}' class='item, {{mf==index?"select":""}}' bindtap='select' data-status='{{item.status}}' data-item='{{item}}' data-index='{{index}}'>{{item.name}} 
+     <text wx:if="{{index == 1 && shareNum}}">{{shareNum}}</text> 
+  </view>
+  </view>
+  <view class='bot-line-container'>
+    <view class='slide-wrapper' style='margin-left: {{mf*25}}%'>
+      <view class='slide'></view>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{isComplete}}'>
+  <block wx:if='{{render.length}}'>
+    <!-- 我的订单列表 -->
+    <view class='list-container'>
+      <view class='list-item' wx:for='{{render}}' wx:key='{{index}}'>
+        <!--订单号-状态  -->
+        <view class='part1 xpk-1px-b'>
+          <text class='iden'>订单编号：{{item.no}}</text>
+          <text class='status {{item.orderStatusCode == "12" ? "red" : ""}} {{item.orderStatusCode == "02" ? "mainColor" : ""}}'>{{(item.orderStatusCode == "04" && item.type == "0") ? "砍价成功，待出行": item.statusText}}</text>
+        </view>
+        <!--订单信息  -->
+        <view class='part2' data-order='{{item.id}}' data-status="{{item.status}}">
+          <view data-item="{{item}}" data-id="{{item.productId}}" bindtap='buyAgain' class='pic-discr'>
+            <image mode='aspectFill' src="{{item.skuImage}}"></image>
+            <text>{{item.departure == "多地出发" ? item.departure : item.departure + "出发"}}</text>
+          </view>
+          <view class='content' bindtap='enterDetail' data-order='{{item.id}}' data-status="{{item.status}}">
+            <view class='name text-2-eclips'>{{item.productName}}</view>
+            <view class='spec'>
+              <text class='spec-item'>{{item.departure_date}}出发</text>
+            </view>
+            <view class='price-num'>
+              <view class='part1'>
+                <text class='money'>￥{{item.realPrice}}</text>
+                <text class='share-to-reduce' wx:if="{{item.type == '0'}}">分享{{item.shareTotal}}人砍价，立省{{item.less}}元</text>
+              </view>
+              <view class='part2'>x {{item.num}}</view>
+            </view>
+          </view>
+        </view>
+        <!--订单-按钮  -->
+        <view class='part3 xpk-1px-t' wx:if="{{item.btnText != ''}}">
+          <view class='timer' data-id="{{item.orderProductId}}" bindtap='enterShare'>
+            <block wx:if='{{item.orderStatusCode == "02" && !item.isEnd && item.restTimeArr}}'>
+              <text class='clock'>{{item.restTimeArr[0]}}</text>
+              <text class='semicolon'>:</text>
+              <text class='clock'>{{item.restTimeArr[1]}}</text>
+              <text class='semicolon'>:</text>
+              <text class='clock'>{{item.restTimeArr[2]}}</text>
+              <text class='text ml'>后结束</text>
+              <view>
+                <text class='text ml'>还需分享</text>
+                <text class='text theme-c'>{{item.shareNum}}</text>
+                <text class='text'>人</text>
+              </view>
+            </block>
+          </view>
+          <view data-item="{{item}}" wx:if="{{item.orderStatusCode == '07'}}" bindtap='enterEval' class='operation-btns mainBgColor'>{{item.btnText}}</view>
+
+          <view wx:elif="{{item.orderStatusCode == '02'}}" data-item="{{item}}" data-id="{{item.orderProductId}}" bindtap='openMask' class='operation-btns mainBgColor'>{{item.btnText}}</view>
+          <block wx:elif="{{item.orderStatusCode == '04'}}">
+            <view data-id="{{item.id}}" bindtap='cancelOrder' class='operation-btns cancel-btn'>取消订单</view>
+            <view catchtap='isMaskShow' class='operation-btns mainBgColor'>{{item.btnText}}
+            <!-- <button open-type='contact'></button> -->
+            </view> 
+          </block> 
+          <view wx:elif="{{item.orderStatusCode == '09'}}"  data-id="{{item.id}}" bindtap='orderDetail' class='operation-btns cancel-btn'>{{item.btnText}}</view>
+
+          <!-- <view wx:elif="{{item.status == '待收货'}}" data-id="{{item.id}}" bindtap='confirmReceipt' class='operation-btns mainBgColor'>{{item.btnText}}</view> -->
+
+          <view wx:elif="{{item.orderStatusCode == '12' || item.orderStatusCode == '16' || item.orderStatusCode == '06' || item.orderStatusCode == '11'}}" data-item="{{item}}" data-id="{{item.productId}}" bindtap='buyAgain' class='operation-btns mainBgColor'>{{item.btnText}}</view>
+          
+          <view bindtap='isMaskShow'  wx:elif="{{item.orderStatusCode == '03'  || item.orderStatusCode == '19'}}" class='operation-btns mainBgColor'>{{item.btnText}}
+          <!-- <button open-type='contact'></button> -->
+          </view> 
+          <view wx:else class='operation-btns mainBgColor'>{{item.btnText}}</view> 
+        </view>
+      </view>
+    </view>
+    <!--没有更多订单  -->
+    <view wx:if='{{!hasMore}}' class='no-more'>
+      <text class='line'></text>
+      <text class='text'>没有更多订单了</text>
+      <text class='line'></text>
+    </view>
+  </block>
+  <view wx:else class='no-render'>
+    <image src='../../images/icons/ej_kym@3x.svg' mode='aspectFit' class='icon'></image>
+    <text class='text'>您暂时还没有订单</text>
+  </view>
+</view>
+
+<!--分享  -->
+<view class='mask' wx:if="{{isMask}}">
+  <view class='mask-bg' catchtap='maskShow'></view>
+  <view class='share'>
+    <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+    <view class='share-con'>
+      <view class='item'>
+        <button class='share-btn' open-type="share"></button>
+        <image src='../../images/icons/wx@3x.svg'></image>
+        <text>生成链接，发送好友</text>
+      </view>
+      <view class='item' catchtap="share">
+        <image src='../../images/icons/sc@3x.svg'></image>
+        <text>生成图片，发朋友圈</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--客服  -->
+<view class='mask kf-mask' wx:if="{{isKfMask}}">
+  <view class='mask-bg' catchtap='isMaskShow'></view>
+  <view class='share'>
+    <view class='title'>请选择 <icon class='icon-gb2' catchtap='isMaskShow'></icon></view>
+    <view class='share-con'>
+      <view class='item'  bindtap='callKf'>
+        <image src='../../images/icons/dhkf@3x.svg'></image>
+        <text>电话客服</text>
+      </view>
+      <view class='item'>
+        <button class='share-btn' open-type='contact'></button>
+        <image src='../../images/icons/zxkf@3x.svg'></image>
+        <text>在线客服</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>

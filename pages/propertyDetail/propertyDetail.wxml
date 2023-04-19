@@ -1,0 +1,27 @@
+<view wx:if="{{isLoad}}">
+  <!--资产详情  -->
+  <block wx:if="{{list.length}}">
+    <view class='detail-list'>
+      <view class='item xpk-1px-b' wx:for="{{list}}" wx:key="{{item}}">
+        <image src='{{item.avatarImageUrl}}'></image>
+        <view class='part1'>
+          <view>
+            <text class='detail text-1-eclips'>{{item.nickName}}</text>带来一笔奖励
+          </view>
+          <text class='time'>{{item.createDate}}</text>
+        </view>
+        <view class='part2'>
+          <text class='money'>+￥{{item.clearAmountTotal}}</text>
+          <text class='{{item.clearingStatusName == "待结算" ? "checking" : ""}}'>{{item.clearingStatusName}}</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+  </block>
+
+  <view wx:else class='no'>
+      <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+      <text class='text'>暂无数据</text>
+  </view>
+</view>
+

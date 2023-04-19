@@ -1,0 +1,15 @@
+<view class='sub-container'>
+  <view class='item' wx:for='{{share}}' wx:key='{{index}}'>
+    <image src='{{item.avatarImage}}' mode='widthFix' class='part1'></image>
+    <text class='part2'>{{item.nickName}}</text>
+    <view class='part3'>
+      <view class='top'>还差<text class='theme-text'>{{item.shareNum}}人</text>分享</view>
+      <view class='bottom' wx:if='{{item.status == 3}}' style='color: #FB5726'>下单成功</view>
+      <view class='bottom' wx:if="{{item.status!= 3&&!item.isEnd}}">{{item.restTimeArr[0]}}:{{item.restTimeArr[1]}}:{{item.restTimeArr[2]}}</view>
+      <view class='bottom' wx:if="{{item.status==12&&item.isEnd}}">下单失败</view>
+      <view class='bottom' wx:if="{{item.status==16&&item.isEnd}}">已退款</view>
+      <view class='bottom' wx:if="{{item.status==17&&item.isEnd}}">已退货</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{nomore}}" class='no-more'>没有更多了</view>

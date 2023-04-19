@@ -1,0 +1,54 @@
+<view wx:if="{{isLoad}}">  
+  <!--我的钱包  -->
+  <view class='my-wallet'>
+    <view class='money-con'>
+      <view class='money'>
+        <text class='part1'>¥</text>
+        <text class='part2'>{{amount == '' ? 0 : amount}}</text>
+      </view>
+      <view class="withdraw">可提现金额</view>
+    </view>
+  </view> 
+
+  <!--资产详情  -->
+  <view class='property' data-url="../propertyDetail/propertyDetail" bindtap='enterPage'>
+    <text class='tit'>资产详情</text>
+    <view class='property-con'>
+      <view class='now-day item'>
+        <view>
+          <text class="part1">￥{{todayIncome == ''? 0: todayIncome}}</text>
+          <text class='part2'>今日收入</text>
+        </view>
+      </view>
+      <view class='now-week item'>
+        <view>
+          <text class="part1">￥{{currentWeekIncome == ''? 0: currentWeekIncome}}</text>
+          <text class='part2'>本周收入</text>
+        </view>
+      </view>
+      <view class='now-month item'>
+        <view>
+          <text class="part1">￥{{currentMonthIncome == ''? 0: currentMonthIncome}}</text>
+          <text class='part2'>本月收入</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--明细列表  -->
+  <view class='detail-list'>
+    <view class='item xpk-1px-b' data-url="../awardDetail/awardDetail" bindtap='enterPage'>
+      <icon class='icon-jlmx'></icon>
+      <text>奖励明细</text>
+      <icon class='icon-jt'></icon>
+    </view>
+    <view class='item' data-url="../withdrawDetail/withdrawDetail" bindtap='enterPage'>
+      <icon class='icon-txjl'></icon>
+      <text>提现明细</text>
+      <icon class='icon-jt'></icon>
+    </view>
+  </view>
+
+  <!--提现  -->
+  <view class='btn mainBgColor' bindtap='enterPage' data-url='../withdraw/withdraw'>提现</view>
+</view>

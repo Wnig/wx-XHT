@@ -1,0 +1,109 @@
+<!--付款成功  -->
+<view wx:if="{{isLoad}}">
+  <view class='pay-success'>
+    <!--成功  -->
+    <view class='pay-tips success' wx:if="{{!orderFail}}">
+      <view class='tips-con'>
+        <image src="../../images/sample/fkcg@3x.svg"></image>
+        <!--付款  -->
+        <text class='tip' wx:if="{{isPay}}">{{tips[1].tip}}</text>
+        <!--提现  -->
+        <text class='tip' wx:else>{{tips[3].tip}}</text>
+        <block wx:if="{{!isPay}}">
+          <view class='money'><text>¥</text>{{inputval}}</view>
+          <view class='plantime'>预计{{planTime}}到账</view>
+        </block>
+      </view>
+    </view>
+
+    <!--失败  -->
+    <view wx:else class='pay-tips fail'>
+      <view class='tips-con'>
+        <image src="../../images/sample/fksb@3x.svg"></image>
+        <!--付款  -->
+        <text class='tip' wx:if="{{isPay}}">{{tips[0].tip}}</text>
+        <!--提现  -->
+        <text class='tip' wx:else>{{tips[2].tip}}</text>
+        <view class='money' wx:if="{{!isPay}}"><text>¥</text>{{inputval}}</view>
+      </view>
+    </view>
+
+    <!--按钮-成功  -->
+    <view class="btns" wx:if="{{!orderFail}}">
+      <!--付款  -->
+      <view class='btn-con' wx:if="{{isPay}}">
+        <view class='btn' bindtap='enterPage' data-url='../index/index'>返回首页</view>
+        <view class='btn' bindtap='enterPage' data-url='../order/order'>查看订单</view>
+      </view>
+      <!--提现  -->
+      <view class='btn-con' wx:else>
+        <view class='btn' bindtap='enterPage2' data-url='../withdrawDetail/withdrawDetail'>查看账单</view>
+        <view class='btn' bindtap='enterPage' data-url='../shop/shop'>返回首页</view>
+      </view>
+    </view>
+
+    <!--按钮-失败  -->
+    <view class="btns" wx:else>
+      <!--付款  -->
+      <view class='btn-con' wx:if="{{isPay}}">
+        <view class='btn' bindtap='enterPage' data-url='../index/index'>返回首页</view>
+        <view class='btn'>联系客服</view>
+      </view>
+      <!--提现  -->
+      <view class='btn-con' wx:else>
+        <view class='btn'>联系客服</view>
+        <view class='btn' bindtap='enterPage' data-url='../shop/shop'>返回首页</view>
+      </view>
+    </view>
+  </view>
+
+  <!--查看订单 - 付款 -->
+  <view class='order-info' wx:if="{{isPay}}" wx:for="{{render}}" wx:key="item">
+    <view class='part1 xpk-1px-b'>
+      <view class='item'>
+        <text>{{item.receiverName}}</text>
+        <text>{{item.receiverPhone}}</text>
+      </view> 
+      <view class='item'>
+        实付：¥{{item.realAmount}}
+      </view>
+    </view>
+    <view class='timer clearfix' wx:if="{{item.type == '0' && isEnd}}">
+      <view class='timer-con' bindtap='enterShare'>
+        <text class='clock'>{{item.restTimeArr[0]}}</text>
+        <text class='semicolon'>:</text>
+        <text class='clock'>{{item.restTimeArr[1]}}</text>
+        <text class='semicolon'>:</text>
+        <text class='clock'>{{item.restTimeArr[2]}}</text>
+        <text class='text ml'>后活动结束,</text>
+        <view class='ms'>
+          <text class='text ml'>还差</text>
+          <text class='text theme-c'>{{item.shareTotal}}</text>
+          <text class='text'>人砍价 ></text>
+        </view>
+      </view>
+      <view class='share-btn mainBgColor' bindtap='maskShow'>分享砍价</view>
+    </view>
+  </view>
+
+  <!--分享  -->
+  <view class='mask' wx:if="{{isMask}}">
+    <view class='mask-bg' catchtap='maskShow'></view>
+    <view class='share'>
+      <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+      <view class='share-con'>
+        <view class='item'>
+          <button class='share-btn' open-type="share"></button>
+          <image src='../../images/icons/wx@3x.svg'></image>
+          <text>生成链接，发送好友</text>
+        </view>
+        <view class='item' catchtap="share">
+          <image src='../../images/icons/sc@3x.svg'></image>
+          <text>生成图片，发朋友圈</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+</view>

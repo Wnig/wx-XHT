@@ -1,0 +1,242 @@
+/* commodity */
+.commodity {
+    margin-bottom: 20rpx;
+    padding: 0 30rpx;
+    background: #FFF;
+}
+.commodity .part1 {
+    display: flex;
+    align-items: center;
+    padding: 30rpx 0;
+}
+.commodity .part1 .cover {
+    width: 176rpx;
+    height: 176rpx;
+    background: 'url('+var(--imgDomain)+'/detail-bj.jpg)';
+}
+.commodity .part1 .content {
+    flex: 1;
+    margin-left: 30rpx;
+    overflow: hidden;
+}
+.commodity .pic-discr {
+  position: relative;
+  border-radius: 4rpx;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.29);
+}
+
+.pic-discr image {
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+}
+.pic-discr text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 20px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.commodity .part1 .content .name {
+    height: 64rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 32rpx;
+}
+.commodity .part1 .content .starting-time {
+  margin-top: 10rpx;
+  opacity: 0.4;
+  color: #333333;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.commodity .part1 .content .bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 18rpx;
+}
+.commodity .part1 .content .bottom .price {
+    flex: 1;
+}
+.commodity .part1 .content .bottom .price .num {
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #000000;
+    line-height: 32rpx;
+}
+.commodity .part1 .content .bottom .price .reduce {
+    margin-left: 12rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFA816;
+    line-height: 28rpx;
+}
+.commodity .part1 .content .bottom .num {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 28rpx;
+}
+.commodity .part2 {
+    display: flex;
+    align-items: center;
+}
+.commodity .part2 .text {
+    flex: 1;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 28rpx;
+}
+.commodity>.part2>.cost {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #222333;
+    line-height: 96rpx;
+}
+.commodity>.part3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96rpx;
+  color: #000000;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.commodity>.part3 view {
+  flex: 1;
+}
+.commodity>.part3 text {
+  margin: 0 25rpx;
+}
+.commodity>.part3 .total {
+  text-align: right;
+}
+
+.evaluate{
+  padding: 0 15px 15px 15px;
+  background: #fff;
+  margin-bottom:20rpx;
+}
+
+.evaluate .title{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #000000;
+  line-height: 20px;
+  /* padding-bottom:34rpx; */
+}
+.textareabox{
+  position: relative;
+}
+.textareabox .count{
+  position: absolute;
+  right:22rpx;
+  bottom:30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #C9C9C9;
+  letter-spacing: -0.37px;
+  line-height: 12px;
+}
+
+textarea{
+  padding: 20rpx;
+  border: 1rpx solid #d8d8d8;
+  display: block;
+  height:190rpx;
+  width:100%;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+font-size: 12px;
+color: #000000;
+letter-spacing: 0;
+line-height: 18px;
+}
+.placeholder{
+  font-family: PingFangSC-Regular;
+font-size: 12px;
+color: #d8d8d8;
+letter-spacing: 0;
+line-height: 18px;
+}
+.upload{
+  padding-top: 30rpx;
+  padding-bottom:60rpx;
+  padding-left:30rpx;
+  background: #fff;
+}
+.upload .title{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 14px;
+  padding-bottom:50rpx;
+}
+
+.upload .title .tip{
+  font-family: PingFangSC-Regular;
+font-size: 10px;
+color: #989898;
+letter-spacing: 0;
+line-height: 10px;
+}
+.upload .imgList{
+  display: flex;
+}
+.upload .imgbox{
+  width:120rpx;
+  height:120rpx;
+  margin-right:24rpx;
+  position: relative;
+}
+.upload .imgbox .image{
+  width:100%;
+  height:100%;
+}
+.upload .close{
+  position: absolute;
+  width:32rpx;
+  height:32rpx;
+  border-radius: 50%;
+  right:-15rpx;
+  top:-15rpx;
+  font-size: 16px;
+}
+
+.star > text {
+  font-size: 20px;
+  color: #DDD;
+  padding:1px;
+}
+
+.star > .select {
+  color: #FFa816;
+  padding:1px;
+}
+.ebox{
+  display:flex;
+  align-items: center;
+  height: 94rpx;
+}
+
+.submit{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  font-family: PingFangSC-Regular;
+  font-size: 18px;
+  line-height: 50px;
+  width: 100%;
+  height:50px;
+  text-align: center;
+}

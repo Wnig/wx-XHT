@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+  <defs>
+    <path id="fx_hh@3x-a" d="M9,18 C13.9705627,18 18,13.9705627 18,9 C18,4.02943725 13.9705627,0 9,0 C4.02943725,0 0,4.02943725 0,9 C0,13.9705627 4.02943725,18 9,18 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#ECECEC" xlink:href="#fx_hh@3x-a"/>
+    <path stroke="#CCC" stroke-width=".5" d="M9,17.75 C13.8324916,17.75 17.75,13.8324916 17.75,9 C17.75,4.16750844 13.8324916,0.25 9,0.25 C4.16750844,0.25 0.25,4.16750844 0.25,9 C0.25,13.8324916 4.16750844,17.75 9,17.75 Z"/>
+  </g>
+</svg>

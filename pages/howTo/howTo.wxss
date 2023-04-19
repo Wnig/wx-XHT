@@ -1,0 +1,73 @@
+/*如何赚钱  */
+page {
+  height: 100%;
+  background: #fff;
+}
+.img-con {
+  padding-top: 170rpx;
+}
+.img-con image {
+  display: block;
+  width: 100%;
+}
+
+.how-to-list {
+  padding-left: 30rpx;
+  color: #333333;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+  background: #fff;
+}
+.how-to-list .item {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  line-height: 96rpx;
+}
+.how-to-list text {
+  flex: 1;
+}
+.how-to-list icon {
+  width: 15%;
+  text-align: center;
+  color: #C3C3C3;
+  font-size: 30rpx;
+}
+
+/*菜单按钮  */
+.menu-con {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+  z-index: 9999;
+}
+.menu {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 586rpx;
+  margin: 52rpx auto 50rpx;
+  border: 1px solid var(--themeBg);
+  border-radius: 100px;
+}
+.menu .btn {
+  width: 196rpx;
+  height: 60rpx;
+  color: var(--themeBg);
+  text-align: center;
+  line-height: 60rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.menu .c_btn {
+  border-right: 1px solid var(--themeBg);
+  border-left: 1px solid var(--themeBg);
+}
+.menu .sel_btn {
+  color: #fff;
+  background: var(--themeBg);
+}
+

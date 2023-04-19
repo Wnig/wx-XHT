@@ -1,0 +1,83 @@
+{
+  "pages": [
+    
+    "pages/index/index",
+    "pages/generalize/generalize",
+    "pages/myWallet/myWallet",
+    "pages/confirmOrder/confirmOrder",
+    "pages/orderDetail/orderDetail",
+    "pages/order/order",
+    "pages/creatingShop/creatingShop",
+    "pages/my/my",
+    "pages/orderTips/orderTips",
+    "pages/details/details",
+    "pages/classifyItem/classifyItem",
+    "pages/shop/shop",
+    "pages/myShop/myShop",
+    "pages/selCourse/selCourse",
+    "pages/evaluate/evaluate",
+    "pages/collection/collection",
+    "pages/awardDetail/awardDetail",
+    "pages/propertyDetail/propertyDetail",
+    "pages/withdrawDetail/withdrawDetail",
+    "pages/withdraw/withdraw",
+    "pages/freeOpen/freeOpen",
+    "pages/freeOpenDetail/freeOpenDetail",
+    "pages/createSuccess/createSuccess",
+    "pages/bindingInfo/bindingInfo",
+    "pages/setingShop/setingShop",
+    "pages/addedGoods/addedGoods",
+    "pages/todayBifa/todayBifa",
+    "pages/howToDetail/howToDetail",
+    "pages/howTo/howTo",
+    "pages/shareFriendList/shareFriendList",
+    "pages/share/share",
+    "pages/login/login",
+    "pages/myFriendShop/myFriendShop",
+    "pages/myFans/myFans",
+    "pages/detailForShareList/detailForShareList",
+    "pages/detailForevaluate/detailForevaluate",
+    "pages/about/about",
+    "pages/search/search",
+    "pages/friendShare/friendShare",
+    "pages/orderCancelDetail/orderCancelDetail",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "欣宏途旅途",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#64A5FF",
+    "backgroundColor": "#FFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/dbl_sy_wxz@3x.png",
+        "selectedIconPath": "images/tabBar/dbl_sy_xz@3x.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "店铺",
+        "iconPath": "images/tabBar/dbl_dp_wxz@3x.png",
+        "selectedIconPath": "images/tabBar/dbl_dp_xz@3x.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/tabBar/dbl_dd_wxz@3x.png",
+        "selectedIconPath": "images/tabBar/dbl_dd_xz@3x.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tabBar/dbl_wd_wxz@3x.png",
+        "selectedIconPath": "images/tabBar/dbl_wd_xz@3x.png"
+      }
+    ]
+  }
+}

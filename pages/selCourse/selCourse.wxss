@@ -1,0 +1,294 @@
+/* selCourse.wxss */
+page {
+  padding-bottom: 100rpx;
+}
+/*出发地  */
+.starting {
+  margin-bottom: 14rpx;
+  padding: 12px;
+  background: #fff;
+}
+.starting text {
+  display: block;
+  margin-bottom: 12px;
+  color: #4D4D4D;
+  line-height: 28px;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.place .item {
+  display: inline-block;
+  height: 32px; 
+  margin-right: 10px;
+  margin-bottom: 9px;
+  padding: 0 10px;
+  border-radius: 2px;
+  text-align: center;
+  color: #4D4D4D;
+  line-height: 32px;
+  background: #F3F3F4;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.place .sell_out {
+  color: #E0E0E0;
+}
+.place .pitch_on {
+  color: #FFFFFF;
+  background: #FF972C;
+}
+
+/*选择出游日期  */
+.selTime {
+  margin-bottom: 14rpx;
+  background: #fff;
+}
+.selTime .tit {
+  height: 51px;
+  color: #666666;
+  text-align: center;
+  line-height: 51px;
+  font-family: 'PingFangSC-Medium';
+  font-size: 14px;
+}
+
+/*日历-头部  */
+.month-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+}
+.month-header icon {
+  width: 45px;
+  height: 100%;
+  color: #C2C4CA;
+  line-height: 42px;
+  font-size: 30px;
+}
+.month-header .months {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 660px;
+  height: 42px;
+  line-height: 42px;
+}
+.month-header .months view {
+  display: inline-block;
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.month-header .pre-btn {
+  text-align: left;
+}
+.month-header .next-btn {
+  text-align: right;
+}
+.month-header .no-pre-next {
+  opacity: 0.5;
+}
+
+/*日历-week  */
+.week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.week .week-item {
+  width: 14.29%;
+}
+
+/*日历-day  */
+.day {
+
+}
+.day .day-item {
+  float: left;
+  width: 14%;
+  height: 53px;
+  border-right: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+  color: #000000;
+  text-align: center;
+  line-height: 32px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.day .last-month-day {
+  color: #CBCBCB;
+  background: #FAFAFA;
+}
+.day .selDay {
+  background: #FFDEBC;
+}
+.day text {
+  display: block;
+  color: #FF972C;
+  line-height: 12px;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*成人-儿童-选择数量 */
+.sel-ticket {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  height: 79px;
+  background: #fff;
+  margin-bottom: 1px;
+}
+.sel-ticket .price-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  height: 28px;
+  line-height: 28px;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+.sel-ticket .price-info .price {
+  margin-left: 4px;
+  color: #FF972C;
+}
+.sel-ticket .adult {
+  width: 50%;
+}
+.sel-ticket .child {
+  width: 50%;
+}
+.sel-ticket .child icon {
+  display: flex;
+  margin-left: 4px;
+  color: #FF972C;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+/*增加-减少-按钮  */
+.add-sub .add-sub-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 79px;
+  height: 25px;
+  margin: 0 auto;
+  border: 1px solid #E3E3E3;
+}
+.add-sub .addsub-btn {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 18px;
+}
+.add-sub input {
+  width: 30px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 12px;
+}
+.add-sub .input {
+  width: 30px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/*合计-立即购买  */
+.total-buy {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+}
+.total-buy .total {
+  width: 50%;
+  height: 50px;
+  color: #000000;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.total-buy .buy {
+  width: 50%;
+  height: 50px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 18px;
+}
+.total-buy .nothings {
+  background: #ADADAD;
+}
+
+
+
+/*弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mask .tips {
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 6px;
+}
+.mask .tips-con {
+  padding: 0 15px;
+}
+.mask .tit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1C1C1C;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.mask .tit icon {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  color: #D8D8D8;
+  line-height: 50px;
+  font-size: 20px;
+}
+.mask .tips .content {
+  padding: 25px 0;
+  color: #666666;
+  line-height: 18px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.mask .tips .ok {
+  color: #64A5FF;
+  text-align: center;
+  line-height: 44px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}

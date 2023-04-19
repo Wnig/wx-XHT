@@ -1,0 +1,30 @@
+/*开通店铺  */
+page {
+  height: 100%;
+}
+.creating-shop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.creating-shop image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.creating-shop .creating-btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 80rpx;
+  margin: auto; 
+  width: 650rpx;
+  height: 80rpx;
+  color: #FFFFFF;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 80rpx;
+  box-shadow: 0 0 6px 0 rgba(100,165,255,0.55);
+  font-size: 16px;
+  font-family: 'PingFangSC-Medium';
+}

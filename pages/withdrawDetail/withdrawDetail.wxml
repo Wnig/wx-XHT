@@ -1,0 +1,33 @@
+<!--提现明细  -->
+<view wx:if="{{isLoad}}">
+  <block wx:if="{{withdrawalDetailList.length}}">
+    <view class='detail-list' wx:for="{{withdrawalDetailList}}" wx:key="item">
+      <view class='item xpk-1px-b'>
+        <image src='{{item.defaultIconImage}}'></image>
+        <view class='part1'>
+          <text class='detail'>{{item.defaultName}}</text>
+          <text class='time'>{{item.withdrawTime}}</text>
+        </view>
+        <view class='part2'>
+          <text class='money'>-￥{{item.restAmount}}</text>
+          <!--0审核中，1提现成功，2提现失败  -->
+          <view wx:if="{{item.status == '0'}}">
+            <text class='checking'>{{item.financeStatusName}}(预计{{item.planTime}}到账)</text>
+            <!-- <text class='checking'></text> -->
+          </view>
+          <text wx:elif="{{item.status == '1'}}" class='success'>{{item.financeStatusName}}</text>
+          <text wx:elif="{{item.status == '2'}}" class='fail'>{{item.financeStatusName}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+    
+  </block>
+
+  <view wx:else class='no'>
+      <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+      <text class='text'>暂无数据</text>
+  </view>  
+</view>
+

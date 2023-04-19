@@ -1,0 +1,230 @@
+/*提现  */
+.bank-info-con {
+  padding: 40rpx 28rpx;
+}
+.bank-info {
+  padding: 42rpx 0;
+  border-radius: 2px 2px 0 0;
+  background: #FCFBFB;
+}
+.bank-info .bank {
+  margin-bottom: 26rpx;
+  padding-left: 62rpx;
+  color: #000000;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.bank-info .bank text {
+  margin-right: 30rpx;
+}
+.bank-info .account {
+  opacity: 0.3;
+  color: #000000;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+
+.money {
+  border-radius: 0 0 2px 2px;
+  padding: 44rpx 60rpx 76rpx 60rpx;
+  background: #fff;
+}
+.money .tit {
+  color: #000000;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.input-money {
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+  margin-bottom: 40rpx;
+  font-family: 'PingFangSC-Medium'; 
+}
+.input-money input {
+  height: 160rpx;
+  color: #000000;
+  border: none;
+  outline: none;
+  font-size: 50px;
+  font-family: 'PingFangSC-Medium'; 
+  background: transparent;
+}
+.input-money input:focus {
+  height: 160rpx;
+  color: #000000;
+  font-size: 50px;
+  font-family: 'PingFangSC-Medium'; 
+}
+.placeholder{
+  height: 160rpx;
+  color: #000000;
+  font-size: 50px;
+  font-family: 'PingFangSC-Medium'; 
+}
+.input-money text {
+  margin-right: 18rpx;
+  color: #000000;
+  text-align: center;
+  line-height: 160rpx; 
+  font-size: 34px; 
+  font-family: 'PingFangSC-Medium';
+}
+.money .tips {
+  color: #989A9C;
+  margin-bottom: 42rpx;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.btn {
+  width: 568rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 15px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*提现说明  */
+.tip {
+  padding: 0 28rpx;
+}
+.tip view {
+  color: #989A9C;
+  line-height: 56rpx;
+  font-size: 28rpx;
+  font-family: 'PingFangSC-Regular';
+}
+
+
+/*弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+.mask .tixian {
+  width: 540rpx;
+  padding: 40rpx 10rpx 0 10rpx;
+  border-radius: 6px;
+  background: #fff;
+}
+.tixian .tit {
+  margin-bottom: 60rpx;
+  color: #1C1C1C;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'PingFangSC-Regular';
+}
+.tixian .cons {
+  float: left;
+  width: 100%;
+}
+.tixian .item {
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  margin-bottom: 20rpx;
+  padding: 0 20rpx;
+}
+.tixian .part1 {
+  color: #666666;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.tixian .part2 {
+  flex: 1;
+  color: #000000;
+  text-align: right;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+
+.btns {
+  float: left;
+  width: 100%;
+  height: 88rpx;
+}
+.btns text {
+  float: left;
+  width: 50%;
+  text-align: center;
+  line-height: 88rpx;
+  font-size: 16px;
+  font-family: 'PingFangSC-Regular';
+}
+.btns .no {
+  color: #666666;
+}
+
+/*选提现类型  */
+.mask .shouk-con {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+}
+.mask .tits {
+  height: 80rpx;
+  background: #ECECEC;
+}
+.mask .tits text {
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #989A9C;
+  text-align: center;
+  line-height: 80rpx;
+}
+.cancel-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20%;
+  height: 80rpx;
+}
+.finish-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 80rpx;
+}
+.shoukuan-info {
+  height: 198px;
+  padding: 0 30rpx;
+}
+.shouk-item {
+  display: flex;
+  align-items: center;
+  height: 114rpx;
+}
+.shouk-item text {
+  flex: 1;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+  color: #222333;
+  line-height: 114rpx;
+}
+.shouk-add .add {
+  flex: 0;
+  margin-right: 12rpx;
+  font-size: 30px;
+  height: 122rpx;
+}
+.shouk-item image {
+  display: block;
+  width: 36rpx;
+  height: 36rpx;
+}

@@ -1,0 +1,53 @@
+<!--店铺设置  -->
+<view wx:if="{{isLoad}}">
+  <view class='free-open'>
+    <form report-submit="true" bindsubmit="postForm">
+      <button id="postForm" form-type="submit"></button>
+      <label for='postForm'>
+        <view class='item shop-logo xpk-1px-b'>
+          <text>店铺logo</text>
+          <image mode='aspectFit' class='logo' src="{{imgUrl}}"></image>
+          <icon class='icon-jt'></icon>
+        </view>
+      </label>
+    </form>
+    <view class='item xpk-1px-b' bindtap='enterPage' data-url="../freeOpenDetail/freeOpenDetail?len=10&type=seting&shopinfo=name&inputval={{shopName}}&pfansid={{pFansUserId}}&shopid={{userShopId}}">
+      <text>店铺名称</text>
+      <text class='conts'>{{shopName}}</text>
+      <icon class='icon-jt'></icon>
+    </view>
+    <view class='item xpk-1px-b' bindtap='enterPage' data-url="../freeOpenDetail/freeOpenDetail?len=30&type=seting&shopinfo=ad&inputval={{shopAd}}&pfansid={{pFansUserId}}&shopid={{userShopId}}">
+      <text>店铺广告语</text>
+      <text class='conts'>{{shopAd}}</text>
+      <icon class='icon-jt'></icon>
+    </view>
+    <view class='item' bindtap='enterPage' data-url="../freeOpenDetail/freeOpenDetail?len=30&type=seting&shopinfo=wx&inputval={{shopWx}}&pfansid={{pFansUserId}}&shopid={{userShopId}}">
+      <text>个人微信号</text>
+      <text class='conts'>{{shopWx}}</text>
+      <icon class='icon-jt'></icon>
+    </view>
+  </view>
+
+  <!--结算卡信息  -->
+  <block wx:if="{{userBankCardInfo}}">
+    <view class='title'>结算卡信息</view>
+    <view class='card-list'>
+      <view class='item xpk-1px-b'>{{userBankCardInfo.name}}</view>
+      <view class='item xpk-1px-b'>{{userBankCardInfo.idCard}}</view>
+      <view class='item xpk-1px-b'>{{userBankCardInfo.bankNameId}}</view>
+      <view class='item xpk-1px-b'>{{userBankCardInfo.bankCard}}</view>
+      <view class='item'>{{userBankCardInfo.phone}}</view>
+    </view>
+  </block>
+
+  <!--保存  -->
+  <!-- <form report-submit="true" bindsubmit="postForm">
+    <button id="postForm" form-type="submit"></button>
+    <label for='postForm'>
+      <view class='btn mainBgColor'>保存</view>
+    </label>
+  </form> -->
+</view>
+
+
+

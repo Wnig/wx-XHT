@@ -1,0 +1,131 @@
+/*好友分享列表  */
+page {
+  background: #fff;
+}
+/*人气推荐  */
+.commoduty {
+  margin: 14rpx 14rpx 0 14rpx;
+  padding-top: 42rpx;
+  /* padding-bottom: 42rpx;  */
+  background: #fff;
+}
+.container {
+  padding: 0 30rpx 88rpx 30rpx;
+}
+.list {
+  padding: 20rpx 0;
+}
+.reduce {
+  padding: 2rpx 16rpx;
+  font-size: 12px;
+  color: #FFA816;
+  border: 1px solid #FFA816;
+  line-height: 24rpx;
+  height: 24rpx;
+  border-radius: 100px;
+}
+
+.pic-discr {
+  float: left;
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin-right: 9px;
+  border-radius: 4rpx;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.29);
+}
+
+.pic-discr image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 4rpx;
+}
+.pic-discr text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 20px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.info-con {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 110px;
+}
+.info-con .info-tit {
+  height: 36px;
+  margin-bottom: 6px;
+  color: #000000;
+  text-align: left;
+  line-height: 18px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+}
+.info-con .info-time {
+  margin-bottom: 21px;
+  color: #ADADAD;
+  line-height: 24px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+.info-price .price {
+  margin-right: 8px;
+  color: #333333;
+  line-height: 36px;
+  font-family: 'PingFangSC-Medium';
+  font-size: 18px;
+}
+
+.no-more {
+  padding-bottom: 10rpx;
+  opacity: 0.3;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #222333;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+/*开店提示  */
+.open-shop-tips {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 96%;
+  padding: 0 2%;
+  height: 88rpx;
+  background: rgba(0, 0, 0, 0.7);
+}
+.open-shop-tips image {
+  width: 62rpx;
+  height: 62rpx;
+  margin-right: 20rpx;
+}
+.open-shop-tips text {
+  flex: 1;
+  color: #FFFFFF;
+  text-align: left;
+  font-size: 16px;
+  font-family: 'PingFangSC-Medium';
+}
+.open-shop-tips .open-shop-btn {
+  width: 242rpx;
+  height: 60rpx;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}

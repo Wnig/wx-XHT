@@ -1,0 +1,110 @@
+/*我的钱包  */
+.my-wallet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 258rpx;
+  color: #fff;
+  background: #fff url('https://tour.xinhongt.com/photoServer/xht/seller.png') center center no-repeat;
+  background-size: 100% 100%;
+}
+.my-wallet .money-con {
+  width: 100%;
+}
+.my-wallet .money {
+  text-align: center;
+}
+.my-wallet .part1 {
+  margin-right: 30rpx;
+  font-size: 24px;
+  font-family: 'PingFangSC-Medium';
+}
+.my-wallet .part2 {
+  font-size: 44px;
+  font-family: 'PingFangSC-Medium';
+}
+.my-wallet .withdraw {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*资产详情  */
+.property {
+  margin-bottom: 14rpx;
+  padding: 40rpx 0;
+  background: #fff;
+}
+.property .tit {
+  display: block;
+  margin-bottom: 48rpx;
+  color: #4D4D4D;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.property-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.property-con .item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.property-con .item .part1 {
+  display: block;
+  margin-bottom: 5rpx;
+  color: #333333;
+  text-align: center;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.property-con .item .part2 {
+  display: block;
+  opacity: 0.5;
+  color: #333333;
+  text-align: center;
+  font-size: 12px;
+  font-family: PingFangSC-Regular;
+}
+
+/*明细列表  */
+.detail-list {
+  padding-left: 28rpx;
+  background: #fff;
+}
+.detail-list .item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  color: #333333;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.detail-list .item text {
+  flex: 1;
+}
+.detail-list .item icon {
+  margin-right: 20rpx;
+  line-height: 88rpx;
+  font-size: 30rpx;
+}
+.detail-list .item .icon-jt {
+  margin-right: 40rpx;
+  color: #C3C3C3;
+}
+
+.btn {
+  width: 650rpx;
+  height: 80rpx;
+  margin: 252rpx auto 0;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 15px;
+  font-family: 'PingFangSC-Regular';
+}

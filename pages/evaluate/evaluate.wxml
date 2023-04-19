@@ -1,0 +1,54 @@
+<!--订单信息  -->
+<view class='commodity'>
+  <view class='part1'>
+    <view class='pic-discr'>
+      <image src='{{good.skuImage}}' mode='aspectFill' class='cover'></image>
+      <text>{{good.departure == "多地出发" ? good.departure : good.departure + "出发"}}</text>
+    </view>
+    
+    <view class='content'>
+      <!-- <view> -->
+        <view class='name text-2-eclips'>{{good.productName}}</view>
+          <view class='starting-time'>{{good.departure_date}}出发</view>
+          <view class='bottom'>
+            <view class='price'>
+              <text class='num'>￥{{good.realPrice}}</text>
+              <text wx:if="{{good.type == '0'}}" class='reduce'>分享{{good.shareTotal}}人砍价，立省{{good.less}}元</text>
+            </view>
+          </view>
+      <!-- </view> -->
+    </view>
+  </view>
+</view>
+
+<!--商品评价  -->
+<view class="evaluate">
+    <view class="ebox">
+        <view class="title">商品评分:</view>
+        <view>
+            <view class="star">
+                <text class="icon-spxq_pl_lx {{k < score?'select':''}}" wx:for="{{5}}" wx:for-item="star" wx:for-index="k" wx:key="{{k}}" data-index="{{k}}" catchtap="getStar"></text>
+            </view>
+        </view>
+    </view>
+    <view class="textareabox">
+        <textarea value="{{textareaValue}}" placeholder-style="placeholder" bindinput="input" placeholder="分享体验心得，给万千想买的人一个参考～长度在100字之间" />
+        <view class="count">{{textNum}}/100</view>
+    </view>
+</view>
+<view wx:if="{{true}}" class="upload">
+    <view class="title">
+        添加图片
+        <text class="tip">（您最多可以上传3张图片）</text>
+    </view>
+    <view class="imgList">
+        <view wx:for="{{imgList}}" wx:key="{{index}}" class="imgbox">
+            <icon catchtap="deleteImg" class="icon-fksb mainColor close" data-idx="{{index}}"></icon>
+            <image bindtap="previewImg" class="image" src="{{item}}" mode="aspectFit"></image>
+        </view>
+        <view wx:if="{{imgList.length<3}}" class="imgbox" bindtap="upload">
+            <image class="image" src="../../images/sample/tjtp@3x.png" mode="aspectFit"></image>
+        </view>
+    </view>
+</view>
+<view class="submit mainBgColor" bindtap="submit">提交</view>

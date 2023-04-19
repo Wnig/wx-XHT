@@ -1,0 +1,140 @@
+<!--订单详情  -->
+<view wx:if="{{isLoad}}">
+  <view class='order-info'>
+    <!-- <view class='status'>
+        订单状态：<text wx:for="{{orderStatus}}" wx:key="item" wx:if="{{status == item.status}}" class='status {{item.status == 0 ? "red" : ""}} {{ item.status == 1 ? "mainColor" : ""}}'>{{mallOrderInfo.status}}</text>
+    </view> -->
+    <view class='status'>
+        订单状态：
+        <!-- <text class='status {{mallOrderInfo.orderStatusCode == "12" ? "red" : ""}} {{ mallOrderInfo.orderStatusCode == "02" ? "mainColor" : ""}}'>{{mallOrderInfo.orderStatusCode == "12" ? "砍价失败，退款中" : (mallOrderInfo.orderStatusCode == "04" ? (mallOrderInfo.type == 0 ? "砍价成功，待出行": mallOrderInfo.statusText) : mallOrderInfo.statusText)}}</text> -->
+        <text class='status {{mallOrderInfo.orderStatusCode == "12" ? "red" : ""}} {{mallOrderInfo.orderStatusCode == "02" ? "mainColor" : ""}}'>{{(mallOrderInfo.orderStatusCode == "04" && mallOrderInfo.type == "0") ? "砍价成功，待出行": mallOrderInfo.statusText}}</text>
+        <!-- <text class='status}'>{{mallOrderInfo.status}}</text> -->
+    </view>
+    <view class='order-num'>
+        下单编号：<text>{{mallOrderInfo.no}}</text>
+    </view>
+    <view class='order-num'>
+        下单时间：<text>{{mallOrderInfo.createDate}}</text>
+    </view>
+    <view class='price xpk-1px-t'>
+        <view class='relprice'>实付：<text>{{mallOrderInfo.realAmount}}</text></view>
+        <block wx:if="{{mallOrderInfo.btnText != ''}}">
+          <view data-item="{{mallOrderInfo}}" wx:if="{{mallOrderInfo.orderStatusCode == '07'}}" bindtap='enterEval' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}</view>
+
+        <view wx:elif="{{mallOrderInfo.orderStatusCode == '02'}}" data-id="{{mallOrderInfo.orderProductId}}" bindtap='openMask' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}</view>
+
+        <block wx:elif="{{mallOrderInfo.orderStatusCode == '04'}}">
+            <view data-id="{{mallOrderInfo.id}}" bindtap='cancelOrder' class='operation-btns cancel-btn'>取消订单</view>
+            <view bindtap='isMaskShow' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}
+            <!-- <button open-type='contact'></button> -->
+            </view> 
+          </block> 
+          <view wx:elif="{{mallOrderInfo.orderStatusCode == '09'}}"  data-id="{{mallOrderInfo.id}}" bindtap='orderDetail' class='operation-btns cancel-btn'>{{mallOrderInfo.btnText}}</view>
+
+        <!-- <view wx:elif="{{mallOrderInfo.orderStatusCode == '04'}}" data-id="{{mallOrderInfo.orderProductId}}" bindtap='' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText != ''}}</view> -->
+
+        <!-- <view wx:elif="{{mallOrderInfo.orderStatusCode == '待收货'}}" data-id="{{mallOrderInfo.id}}" bindtap='confirmReceipt' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}</view> -->
+
+        <view wx:elif="{{mallOrderInfo.orderStatusCode == '12' || mallOrderInfo.orderStatusCode == '16' || mallOrderInfo.orderStatusCode == '06' || mallOrderInfo.orderStatusCode == '11'}}" data-item="{{mallOrderInfo}}" data-id="{{mallOrderInfo.productId}}" bindtap='buyAgain' class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}</view>
+          
+          <view bindtap='isMaskShow' wx:elif="{{mallOrderInfo.orderStatusCode == '03' || mallOrderInfo.orderStatusCode == '19'}}" class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}
+          <!-- <button open-type='contact'></button> -->
+          </view> 
+          <view wx:elif="{{mallOrderInfo.orderStatusCode != '04'}}" class='operation-btns mainBgColor'>{{mallOrderInfo.btnText}}</view>
+        </block>
+    </view> 
+  </view>
+
+  <!--订单信息  -->
+  <view class='commodity'>
+    <view class='part2 xpk-1px-b'>
+      <image class='ico' src="../../images/sample/th@3x.svg"></image>{{mallOrderInfo.meal}}
+    </view>
+    <view class='part1 xpk-1px-b'>
+      <view class='pic-discr'>
+        <image src='{{mallOrderInfo.skuImage}}' mode='aspectFill' class='cover'></image>
+        <text>{{mallOrderInfo.departure == '多地出发' ? mallOrderInfo.departure : mallOrderInfo.departure + '出发' }}</text>
+      </view>
+      <view class='content'>
+        <view class='name text-2-eclips'>{{mallOrderInfo.productName}}</view>
+        <view class='starting-time'>{{mallOrderInfo.departure_date}}出发</view>
+        <view class='bottom'>
+          <view class='price'>
+            <text class='num'>￥{{mallOrderInfo.realPrice}}</text>
+            <text class='reduce' wx:if="{{mallOrderInfo.type == 0}}">分享{{mallOrderInfo.shareTotal}}人砍价，立省{{mallOrderInfo.less}}元</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='part3'>
+      <view class='prices'>
+        <text wx:if="{{mallOrderInfo.adultNums}}" class='adult-num'>成人(￥{{aPrice}})x {{mallOrderInfo.adultNums}}</text>
+        <text wx:if="{{mallOrderInfo.childrenNums}}" class='child-num'>儿童(￥{{cPrice}})x {{mallOrderInfo.childrenNums}}</text>
+      </view>
+         <view class='total'>合计￥{{mallOrderInfo.realAmount}}</view> 
+    </view>
+  </view>
+
+  <!--用户信息-下单金额-支付方式  -->
+  <view class='user-info'>
+    <view class='item user-tel xpk-1px-b'>
+      <text class='name'>{{mallOrderInfo.receiverName}}</text><text>{{mallOrderInfo.receiverPhone}}</text>
+    </view>
+    <view class='item'>
+      <text>支付方式：</text><text>{{mallOrderInfo.paymentType}}</text>
+    </view>
+    <view class='item'>
+      <text>实付金额：</text><text>￥{{mallOrderInfo.realAmount}}</text>
+    </view>
+  </view>
+
+  <!--客服  -->
+  <view wx:if="{{mallOrderInfo.orderStatusCode == '03' || mallOrderInfo.orderStatusCode == '04'}}" class='service'>
+    <view class='ser-time'><text>服务时间</text>：{{serviceField.serviceTime}}</view>
+    <view class='service-btn'>
+        <view class='kf'><icon class='icon-kf'></icon>在线客服<button open-type='contact'></button></view>
+        <view bindtap='callKf'><icon class='icon-dh'></icon>电话客服</view>
+    </view>
+  </view>
+
+  <!--分享  -->
+  <view class='mask' wx:if="{{isMask}}">
+    <view class='mask-bg' catchtap='maskShow'></view>
+    <view class='share'>
+      <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+      <view class='share-con'>
+        <view class='item'>
+          <button class='share-btn' open-type="share"></button>
+          <image src='../../images/icons/wx@3x.svg'></image>
+          <text>生成链接，发送好友</text>
+        </view>
+        <view class='item' catchtap="share">
+          <image src='../../images/icons/sc@3x.svg'></image>
+          <text>生成图片，发朋友圈</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--客服弹窗  -->
+<view class='mask kf-mask' wx:if="{{isKfMask}}">
+  <view class='mask-bg' catchtap='isMaskShow'></view>
+  <view class='share'>
+    <view class='title'>请选择 <icon class='icon-gb2' catchtap='isMaskShow'></icon></view>
+    <view class='share-con'>
+      <view class='item'  bindtap='callKf'>
+        <image src='../../images/icons/dhkf@3x.svg'></image>
+        <text>电话客服</text>
+      </view>
+      <view class='item'>
+        <button class='share-btn' open-type='contact'></button>
+        <image src='../../images/icons/zxkf@3x.svg'></image>
+        <text>在线客服</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+  <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+</view>
+

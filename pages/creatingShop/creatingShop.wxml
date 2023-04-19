@@ -1,0 +1,6 @@
+<!--开通店铺  -->
+<view class="creating-shop" wx:if="{{isLoad}}">
+  <image mode='aspectFill' src="https://tour.xinhongt.com/photoServer/xht/share-bj@3x.jpg"></image>
+   <view bindtap='openShop' class='creating-btn mainBgColor'>免费开店，日赚1000元</view> 
+</view> 
+

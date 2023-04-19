@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>txmx@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="提现明细" transform="translate(-15.000000, -84.000000)">
+            <g id="Group-4-Copy-2" transform="translate(15.000000, 84.000000)">
+                <g id="txmx">
+                    <circle id="Oval" fill="#64A5FF" cx="21" cy="21" r="21"></circle>
+                    <g id="钻石" transform="translate(10.000000, 12.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M8.37705,0 L3.3,0 L0,6.24324324 L6.05,6.24324324 L8.37705,0 Z M22,6.24324324 L18.7,0 L13.6235,0 L15.95,6.24324324 L22,6.24324324 Z M14.85,6.24324324 L12.5235,0 L9.47705,0 L7.15,6.24324324 L14.85,6.24324324 Z M12.69235,18.9045405 L22,7.37837838 L15.95,7.37837838 L12.69235,18.9045405 Z M0,7.37837838 L9.30765,18.9045405 L6.05,7.37837838 L0,7.37837838 Z M7.15,7.37837838 L11,21 L14.85,7.37837838 L7.15,7.37837838 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

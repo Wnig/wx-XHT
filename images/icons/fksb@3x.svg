@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>fksb@3x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="08订单支付失败" transform="translate(-172.000000, -99.000000)" fill="#FF3E4E" fill-rule="nonzero">
+            <g id="fksb" transform="translate(172.000000, 99.000000)">
+                <path d="M16,32 C7.16344608,32 0,24.8365539 0,16 C0,7.16344608 7.16344608,0 16,0 C24.8365539,0 32,7.16344608 32,16 C32,24.8365539 24.8365539,32 16,32 Z M23.2407503,9.66432329 L22.3356767,8.75924967 L16,15.094886 L9.66432329,8.7592093 L8.75924967,9.66428291 L15.0949264,15.9999596 L8.7592093,22.3356767 L9.66428291,23.2407503 L15.9999596,16.9050736 L22.3356363,23.2407503 L23.2407099,22.3356767 L16.905114,16 L23.2407503,9.66432329 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

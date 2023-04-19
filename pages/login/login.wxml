@@ -1,0 +1,7 @@
+<!--微信登录  -->
+<view class="weixin-login">
+  <view class="weixin-login-con">
+    <image lazy-load="{{true}}" mode='widthFix' class="logo" src="../../images/sample/logo_login@2x.png"></image>
+    <button lang='zh_CN' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" class="login-btn mainBgColor">微信登录</button>
+  </view>
+</view>

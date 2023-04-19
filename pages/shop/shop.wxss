@@ -1,0 +1,188 @@
+/*我的店铺  */
+.my-wallet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 258rpx;
+  color: #fff;
+  background: #fff url('https://tour.xinhongt.com/photoServer/xht/seller.png') center center no-repeat;
+  background-size: 100% 100%;
+}
+.my-wallet .money-con {
+  width: 100%;
+}
+.my-wallet .money {
+  text-align: center;
+}
+.my-wallet .part1 {
+  margin-right: 30rpx;
+  font-size: 24px;
+  font-family: 'PingFangSC-Medium';
+}
+.my-wallet .part2 {
+  font-size: 44px;
+  font-family: 'PingFangSC-Medium';
+}
+.my-wallet .withdraw {
+  text-align: center;
+  font-size: 16px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*推广-粉丝-开店  */
+.data-list {
+  margin-bottom: 14rpx;
+  padding: 0 32rpx;
+  background: #fff;
+}
+.data-list .list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-list .list .item {
+  width: 270rpx;
+  padding: 24rpx 0;
+  color: #333333;
+  text-align: center;
+  font-family: 'PingFangSC-Regular';
+  font-size: 17px;
+}
+.data-list .list .bor {
+  width: 2rpx;
+  height: 60rpx;
+  margin: 0 32rpx;
+}
+
+.data-list .list .item text {
+  display: block;
+}
+.data-list .list .dis {
+  margin-top: 5rpx;
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+
+/*明细列表  */
+.detail-list {
+  padding-left: 28rpx;
+  background: #fff;
+}
+.detail-list .item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  color: #333333;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+}
+.detail-list .item text {
+  flex: 1;
+}
+.detail-list .item .icon {
+  display: flex;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  line-height: 88rpx;
+}
+.detail-list .item .icon-jt {
+  margin-right: 40rpx;
+  color: #C3C3C3;
+  font-size: 30rpx;
+}
+
+.btn {
+  width: 650rpx;
+  height: 80rpx;
+  margin: 252rpx auto 0;
+  border-radius: 100px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 15px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*分享弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.mask-bg {
+  width: 100%;
+  height: 100%;
+}
+.mask .share {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 456rpx;
+  background: #fff; 
+}
+.mask .title {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #F5F5F5;
+}
+.mask .title icon {
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  line-height: 80rpx;
+  font-size: 18px;
+}
+.mask .share-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 376rpx;
+}
+.mask .item {
+  position: relative;
+  margin: 0 55rpx;
+}
+.mask .item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.mask .item button:after {
+  border: none;
+}
+.mask .item image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 24rpx;
+}
+.mask .item text {
+  display: block;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}

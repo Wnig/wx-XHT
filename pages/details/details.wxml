@@ -1,0 +1,222 @@
+<!--banner滚动图  -->
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+
+    <view wx:if="{{isLoad}}">
+      <block>
+        <view class="pic-ico">
+          <view class='collect' bindtap='collect'>
+            <image wx:if="{{!isCollect}}" src='../../images/sample/sc@3x.svg'></image>
+            <image wx:else src='../../images/sample/sc_xz@3x.svg'></image>
+          </view>
+          <image bindtap='openMask' src='../../images/sample/fx@3x.svg'></image>
+        </view>
+        <view class='pic-show'>
+          <swiper bindchange='onSlideChangeEnd' autoplay='{{banner.autoplay}}' interval='{{banner.interval}}' circular='{{banner.circular}}' duration='{{banner.duration}}' class='banner'>
+            <swiper-item wx:for='{{mall.slideImage}}' wx:key='{{index}}' item-id='{{index}}' class='banner-item'>
+              <image lazy-load="{{true}}" src='{{item}}' mode='aspectFit' class='cover-img' bindtap='previewEvaImg' data-curr='{{item}}' data-imgs='{{mall.slideImage}}' data-current='{{item}}'></image>
+            </swiper-item>
+          </swiper>
+          <view class="pages">{{current}}/{{mall.slideImage.length}}</view>
+        </view>
+      </block> 
+
+      <!--商品信息 -->
+      <view class='base-info'>
+        <view class='part1'>
+          <view class='price'>
+            <text class='rmb'>￥</text>
+            <text class='sell-price'>{{mall.realPrice}}</text>
+            <text class='orign-price'>￥{{mall.marketPrice}}</text>
+            <!-- <view class='share-lab'>分享10人立省100元</view> -->
+          </view>
+        </view>
+        <view class='part2'>{{mall.name}}</view>
+        <view class='part3'>
+          <view class='time'>{{mall.minDepartureDate}}至{{mall.maxDepartureDate}}出发</view>
+          <view class='buy-num'>{{mall.salesVolume}}人购买</view>
+        </view>
+      </view>
+
+      <!--出发城市  -->
+      <view class='set-off'>
+        <view>出发城市</view>
+        <view class='citys' wx:if="{{mall.departureList.length > 1}}">
+          <text wx:for="{{mall.departureList}}" wx:key="item">{{item}}{{index + 1 == mall.departureList.length ? '': '、'}}</text>
+        </view>
+        <view class='citys' wx:else>
+          <text>{{mall.departureList}}</text>
+        </view>
+      </view>
+
+      <!--活动说明  -->
+      <view class='public-container' bindtap='tipsRule' wx:if="{{fansUserShopId}}">
+        <view class='head'>
+          <text class='part1 mainColor'>活动说明：邀请{{mall.shareNum}}个好友砍价，立省{{mall.less}}元</text>
+          <view class='part2'>
+            <text class='text'>活动规则</text>
+            <text class='icon-jt'></text>
+          </view>
+        </view>
+      </view>
+
+      <!--弹窗  -->
+      <view class='mask-tips' wx-if="{{tipShow}}">
+        <view class='tips'>
+          <view class='tips-con'>
+            <view class="tit xpk-1px-b">
+              温馨提示
+              <icon bindtap='tipsRule' class='icon-fksb'></icon>
+            </view>
+            <view class='content'>
+              <view class='p'><view class="num mainBgColor">1</view>购买后，在24小时内将页面转发给好友，好友帮忙砍价，每一个好友可砍价一次。</view>
+          <view class='p'><view class="num mainBgColor">2</view>如果按照要求完成分享砍价人数，则砍价成功。</view>
+          <view class='p'><view class="num mainBgColor">3</view>如果没有按照要求完成分享砍价人数，则砍价失败，并且原路退回金额。</view>
+          <view class='p'><view class="num mainBgColor">4</view>参与的用户若存在不正当行为（包括但不限于恶意刷单、分享），平台有权取消恶意用户的参与活动资格，必要时平台有权暂停或取消本次活动。</view>
+            </view>
+          </view>
+          <view bindtap='tipsRule' class='ok mainColor xpk-1px-t'>知道了</view>
+        </view>
+      </view>
+
+      <!--分享砍价  -->
+      <view class='public-container' wx:if="{{shareUserList.length}}">
+        <view class='head xpk-1px-b'>
+          <text class='part1'>{{mall.shareUserTotal}}人在分享砍价</text>
+          <view class='part2' bindtap='enterPage' data-url='../detailForShareList/detailForShareList' data-id="{{productId}}">
+            <text class='text'>查看更多</text>
+            <text class='icon-jt'></text>
+          </view>
+        </view>
+        <view class='sub-container'>
+          <view class='item' wx:for='{{shareUserList}}' wx:key='{{index}}' wx:if='{{index < 2}}'>
+            <image src='{{item.avatarImage}}' mode='widthFix' class='part1'></image>
+            <text class='part2'>{{item.nickName}}</text>
+            <view class='part3'>
+              <view class="surplus">还差<text>{{item.shareNum}}人</text>分享</view>
+              <view class="deadline" wx:if="{{item.shareNum != 0 && item.remainTime == 0}}">下单失败</view>
+              <view class="deadline" wx:if="{{item.shareNum == 0}}">下单成功</view>
+              <view class="deadline"  wx:if="{{item.shareNum != 0 && item.remainTime != 0}}" >{{item.remainTiem}}剩余{{item.restTimeArr[0]}}:{{item.restTimeArr[1]}}:{{item.restTimeArr[2]}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--商品评价  -->
+      <view class='public-container' wx:if="{{productCommentList.length}}">
+        <view class='head xpk-1px-b'>
+          <text class='part1'>商品评价（{{mall.commentTotal}}）</text>
+          <view class='part2' bindtap='enterPage' data-url='../detailForevaluate/detailForevaluate' data-id="{{productId}}">
+            <text class='text'>查看更多</text>
+            <text class='icon-jt'></text>
+          </view>
+        </view>
+        <view class='sub-container'>
+          <view class='item' wx:for="{{productCommentList}}" wx:key="{{index}}" wx:if='{{index < 1}}'>
+            <view class='item_'>
+              <view class='user-discuss'>
+                <image src='{{item.avatarImage}}' mode='widthFix' class='part1'></image>
+                <text class='part2'>{{item.nickName}}</text>
+                <view class='part3'>
+                  <view class='time'>{{item.createDate}}</view>
+                </view>
+              </view>
+              <view class='discuss-con'>
+                <text class='dis-cont'>{{item.content}}</text>
+                <text class='starting-info'>{{item.departure_date}}从{{item.departure}}出发</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--图文详情  -->
+      <view class='good-details'>
+        <view class='title'>
+          <image lazy-load="{{true}}" class='line' src='../../images/sample/zsx-l@3x.png' mode='widthFix'></image>
+          <text class='text'>图文详情</text>
+          <image lazy-load="{{true}}" class='line' src='../../images/sample/zsx-r@3x.png' mode='widthFix'></image>
+        </view>
+        <view class='main'>
+          <image lazy-load="{{true}}" wx:for="{{mall.detailImage}}" wx:key="item" src='{{item}}' mode='widthFix' bindtap='previewEvaImg' data-curr='{{item}}' data-imgs='{{mall.detailImage}}' data-current='{{item}}'></image>
+        </view>
+      </view>
+
+      <!--底部栏 -->
+      <view class='footer' wx:if="{{isShoper}}">
+        <view wx:if="{{mall.minCommission == mall.maxCommission}}" class='prices'>佣金：{{mall.maxCommission}}元</view>
+        <view wx:else class='prices'>佣金：{{mall.minCommission}}元~{{mall.maxCommission}}元</view>
+        <view bindtap='openShow' class='btns purchase mainBgColor'>
+          <text class='share-btns'>分享赚钱</text>
+        </view>
+        <!-- <view class='btns share-purchase' bindtap='removeShop' data-join="{{mall.isAddProduct}}">
+          <text class='join-btns {{mall.isAddProduct == 1 ? "joined-btn" : ""}}'>{{mall.isAddProduct == 1 ? "移出店铺" : "加入店铺"}}</text>
+        </view> -->
+      </view>
+
+      <view class='footer' wx:else>
+        <view class='icons sy' bindtap='backPage'>
+          <image src="../../images/tabBar/dbl_sy_wxz@3x.png"></image>
+          <text class='text'>首页</text>
+        </view>
+        <view bindtap='isMaskShow' class='icons sc'>
+          <icon class='icon-zx_wx mainColor'></icon>
+          <text class='text'>咨询</text>
+          <!-- <button open-type='contact'></button> -->
+        </view>
+        <view bindtap='buyNow' data-type="1" data-less="{{mall.less}}" class='btns purchase mainBgColor'>
+          <text class='price'>￥{{mall.realPrice}}</text>
+          <text class='text'>直接购买</text>
+        </view>
+        <view wx:if="{{fansUserShopId}}" bindtap='buyNow' data-type="0" data-less="{{mall.less}}" class='btns share-purchase'>
+          <text class='price'>￥{{(mall.realPrice*1000 - mall.less*1000)/1000}}</text>
+          <text class='text'>砍价购买</text>
+        </view>
+      </view>
+
+      <!--分享  -->
+      <view class='mask' wx:if="{{isMask}}">
+        <view class='mask-bg' catchtap='maskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+          <view class='share-con'>
+            <view class='item'>
+              <button class='share-btn' open-type="share"></button>
+              <image src='../../images/icons/wx@3x.svg'></image>
+              <text>生成链接，发送好友</text>
+            </view>
+            <view class='item' catchtap="share">
+              <image src='../../images/icons/sc@3x.svg'></image>
+              <text>生成图片，发朋友圈</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+     <!--客服弹窗  -->
+      <view class='mask kf-mask' wx:if="{{isKfMask}}">
+        <view class='mask-bg' catchtap='isMaskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='isMaskShow'></icon></view>
+          <view class='share-con'>
+            <view class='item'  bindtap='callKf'>
+              <image src='../../images/icons/dhkf@3x.svg'></image>
+              <text>电话客服</text>
+            </view>
+            <view class='item'>
+              <button class='share-btn' open-type='contact'></button>
+              <image src='../../images/icons/zxkf@3x.svg'></image>
+              <text>在线客服</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+    </view>
+    
+  </label>
+</form>
+
+

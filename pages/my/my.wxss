@@ -1,0 +1,250 @@
+/* pages/my/my.wxss */
+/* head */
+.head {
+  display: flex;
+  align-items: center;
+  background: url('https://tour.xinhongt.com/photoServer/xht/bg-pattern@3x.svg') center center no-repeat;
+  background-size: 100%;
+  background-color: #FFF;
+  height: 146rpx;
+  padding: 0 20rpx 46rpx 50rpx;
+  position: relative;
+}
+
+.head > .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.head > .side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+  position: relative;
+}
+
+.head > .side text {
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  line-height: 40rpx;
+  color: #FFF;
+}
+
+.head > .side > .write-phone {
+  position: relative;
+  padding: 10rpx 20rpx;
+  background: rgba(255,255,255,.3);
+  border-radius: 100px;
+}
+
+.head > .side > .write-phone > .text {
+  vertical-align: middle;
+  font-family: PingFangSC-Light;
+  font-size: 10px;
+  line-height: 20rpx;
+  color: #FFF;
+}
+
+.head > .side > .write-phone > .icon {
+  vertical-align: middle;
+  margin-left: 20rpx;
+  font-size: 9px;
+  line-height: 20rpx;
+  color: #FFF;
+}
+
+.head > .side > .write-phone > button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.head > .no-user {
+  position: relative;
+  padding: 16rpx 30rpx;
+  margin-left: 20rpx;
+  border: 1rpx solid #FFF;
+  border-radius: 3px;
+}
+
+.head > .no-user > .text {
+  font-family: PingFangSC-Light;
+  font-size: 12px;
+  line-height: 24rpx;
+  color: #FFF;
+}
+
+.head > .no-user > .button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+
+/* group */
+.group {
+  padding-left: 36rpx;
+  background: #FFF;
+}
+
+.group > .cell {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  position: relative;
+}
+
+.group > .cell > .icon {
+  font-size: 60rpx;
+}
+.group > .cell > .icon-bz {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.group > .cell > .icon-jt {
+  width: 100rpx;
+  color: #C3C3C3;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.group > .cell > .text {
+  flex: 1;
+  margin-left: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #4D4D4D;
+  letter-spacing: -0.34px;
+  line-height: 14px;
+}
+
+.group > .cell > .icon-xyb {
+  margin-right: 30rpx;
+  font-size: 20rpx;
+  color: #808080;
+}
+
+.group > .cell > button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+
+.getPhone{
+  background-color: #000;
+  display: block;
+  border: 0;
+  opacity: 0;
+  height: 100%;
+  width:60%;
+  position: absolute;
+}
+
+.edition {
+  line-height: 108rpx;
+  font-size: 14px;
+  text-align: center;
+  color: #B7B7B7;
+}
+
+/*分享弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.mask-bg {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+.hot-mask {
+  top: 99px;
+  z-index: 99999;
+}
+.mask .share {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 456rpx;
+  background: #fff; 
+}
+.mask .title {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #F5F5F5;
+}
+.mask .title icon {
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  line-height: 80rpx;
+  font-size: 18px;
+}
+.mask .share-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 376rpx;
+}
+.mask .items {
+  position: relative;
+  margin: 0 113rpx;
+}
+.mask .items button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.mask .items button:after {
+  border: none;
+}
+.mask .items image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 24rpx;
+}
+.mask .items text {
+  display: block;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}

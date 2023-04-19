@@ -1,0 +1,29 @@
+<!--我的收藏  -->
+ <view wx:if="{{isLoad}}"> 
+  <view class='commoduty' wx:if='{{myCollectList.length}}'>
+    <view class='container'>
+      <view bindtap='enterDetail' class='list clearfix {{myCollectList.length-1 == index? "" : "xpk-1px-b"}}' wx:for="{{myCollectList}}" wx:key="item" data-id='{{item.id}}'>
+        <view class='pic-discr'>
+          <image mode='aspectFill' src="{{item.listCoverImage}}"></image>
+          <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+        </view>
+        <view class='info-con'>
+          <view class='info-cons'>
+            <text class='info-tit text-2-eclips'>{{item.name}}</text>
+            <text class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+            <view class='info-price'>
+              <text class='price'>￥{{item.realPrice}}</text>
+              <!-- <text class='reduce'>立省{{item.less}}元</text> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+  </view>
+  <view wx:else class='no-collect'>
+    <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+    <text class='text'>您没有收藏商品</text>
+  </view>
+ </view> 

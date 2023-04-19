@@ -1,0 +1,42 @@
+<!--绑定信息  -->
+<view class='tips'>结算卡一旦绑定不能修改，请认真核对信息后提交</view>
+<view class='info-list'>
+  <view class='item xpk-1px-b'>
+    <input  placeholder='请填写本人姓名' maxlength='10' value='{{name}}' data-type="name" bindinput='inputVal'></input>
+  </view>
+  <view class='item xpk-1px-b'>
+    <input  type="idcard" placeholder='请填写身份证号' maxlength='18' value='{{idCard}}' data-type="idCard" bindinput='inputVal'></input>
+  </view>
+  <view class='item xpk-1px-b'>
+    <picker bindchange="bindPickerChange" value="{{bankArray.bankName}}" range="{{bankArray}}" range-key='bankName'>
+      <view class='bankinfo'>
+          <input value='所属银行' disabled="disabled"></input>
+          <view class='selbank picker'>
+            {{selBank}}{{bankArray[index].bankName}}<text class='icon-jt'></text>
+          </view>
+      </view>
+    </picker>
+  </view>
+  <view class='item xpk-1px-b'>
+    <input  type='number' maxlength='19' placeholder='请填写银行卡号' value='{{bankCard}}' data-type="bankCard" bindinput='inputVal'></input>
+  </view>
+  <view class='item xpk-1px-b'>
+    <input  type='number' maxlength='11' placeholder='请填写本人手机号' value='{{phone}}' data-type="phone" bindinput='inputVal'></input>
+  </view>
+  <view class='item'>
+    <view class='codeinfo'>
+      <input  type='number' maxlength='4' placeholder='请填写手机验证码' value='{{code}}' data-type="code" bindinput='inputVal'></input>
+      <view bindtap='sendCode' wx:if="{{isEnd}}" class='getcode'>获取验证码</view>  
+      <view wx:else class='sendcode'>{{countDown}}S后重发</view> 
+    </view>
+  </view>
+</view>
+
+<!--协议  -->
+ <!-- <view class='compact'>
+  <image src="../../images/icons/tx_xz_l@3x.svg"></image> 
+  提交审核即同意遵守<text class='mainColor'>《欣宏途软件使用协议》</text>
+</view>  -->
+
+<!--提交审核  -->
+<view bindtap='enterNext' class="btn mainBgColor">马上绑定</view>

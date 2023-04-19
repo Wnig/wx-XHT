@@ -1,0 +1,182 @@
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+
+    <view class='header-con'>
+      <view class='head xpk-1px-b'>
+        <view class='part1 xpk-1px'>
+          <input placeholder='请输入'
+            class='in-put'
+            value='{{searchText}}'
+            focus='{{true}}'
+            confirm-type='search'
+            bindconfirm='onConfirm'
+            bindinput='onInput'
+            bindfocus='onFocus'>
+          </input>
+          <image wx:if='{{deleteBtn}}' class='delicon' catchtap='deleteSearchText' src="../../images/icons/ssgb@3x.svg"></image>
+        </view>
+        <text wx:if='{{!searchText||isSearch&&!isEdit}}' class='part2' bindtap='backLast'>取消</text>
+        <text wx:if='{{!isSearch&&searchText&&showSearchBtn}}' class='part2' bindtap='onConfirm'>搜索</text>
+      </view>
+
+      <!-- <view wx:if='{{!isSearch&&isShowMenu}}' class='top-menus-tit xpk-1px-b'>
+        <view bindtap='selMenuTab' class='item {{index == selNum ? "mainColor" : ""}}' wx:for="{{topMenu}}" wx:key="item" data-index="{{index}}">
+          {{item}}
+          <icon wx:if="{{index == 0}}" class='icon-sc_md_jt_x {{selNum == 0 && hotAll ? "all_icon" : ""}}'></icon>
+          <image wx:if="{{index == 2 && lowtohigh == 1 }}" src="../../images/icons/sc_sx_jt_s@3x.svg"></image>
+          <image wx:if="{{index == 2 && lowtohigh == 2}}" src="../../images/icons/sc_sx_jt_x@3x.svg"></image>
+          <image wx:if="{{index == 2 && lowtohigh == 0}}" src="../../images/icons/sc_sx_jt@3x.svg"></image>
+        </view>
+      </view> -->
+    </view>
+
+    <!--热门城市  -->
+    <view class="mask hot-mask" wx:if="{{hotAll && destinationHotList.length}}">
+      <view class='hot'>
+        <view class='hot-con'>
+          <!-- <view class="hot-tit">热门城市</view> -->
+          <view class='hot-cons'>
+            <view class='hot-cons- clearfix'>
+              <view bindtap='selHotTab' wx:for="{{destinationHotList}}" wx:key="item" class='item {{index == selHotNum ? "item-sel" : ""}}' data-index="{{index}}" data-id="{{item.destinationId}}" data-name="{{item.destinationName}}">
+                  {{item.destinationName}}
+                  <image wx:if="{{index == selHotNum}}" class="sel-img" src="../../images/icons/dg@3x.svg"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="btn">
+          <view bindtap='hotBtns' data-type="no" class="cancel">取消</view>
+          <view bindtap='hotBtns' data-type="yes" data-desid="{{tourId}}" class='confirm mainBgColor'>确定</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- style="{{(!isSearch && searchRes.length)? 'top: 200rpx;' : 'top: 124rpx;'}}" -->
+    <scroll-view  class='scroll-container' scroll-y='{{true}}' bindscrolltolower='onScrollBottom'>
+      <view wx:if='{{isSearch||!searchText}}' class='search-history'>
+        <view class='title'>
+          <text class='text'>历史记录</text>
+          <!-- <text class='icon-sc' bindtap='clearHistory'></text> -->
+          <image class='icon-sc' bindtap='clearHistory' src="../../images/icons/sc@3x2.svg"></image>
+        </view>
+        <view class='search-text' wx:if='{{!searchText||searchHistory.length}}'>
+          <text class='item xpk-1px' wx:for='{{searchHistory}}' wx:key='{{index}}' bindtap='clickHistory' data-key='{{item.content}}'>{{item.content}}</text>
+        </view>
+        <view wx:else class='search-no-data'>暂无历史搜索记录</view>
+      </view>
+
+      <!--搜索列表  -->
+      <view class='commoduty' style="{{isShoper ? 'padding-bottom: 98rpx;': 'padding-bottom: 40rpx;'}}" wx:elif='{{!isSearch && searchRes.length}}'>
+        <!-- <view class='container'>
+          <view  bindtap='enterDetail' data-id="{{item.id}}" class='list clearfix {{searchRes.length-1 == index ? "": "xpk-1px-b"}}' wx:for="{{searchRes}}" wx:key="item">
+            <view class='pic-discr'>
+              <image lazy-load="{{true}}" mode='aspectFill' src="{{item.listCoverImage}}"></image>
+              <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+            </view>
+            <view class='info-con'>
+              <view class='info-cons'>
+                <text class='info-tit text-2-eclips'>{{item.name}}</text>
+                <text class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+                <view class='info-price'>
+                  <text class='price'>￥{{item.realPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view> -->
+        <view class='container'>
+          <view bindtap='enterDetail' data-id="{{item.id}}" class='list clearfix {{searchRes.length-1 == index ? "": "xpk-1px-b"}}' wx:for="{{searchRes}}" wx:key="item">
+            <view wx:if="{{isShoper}}" class='sel-btn-con' catchtap='itemSelected' data-index="{{index}}" data-id="{{item.id}}">
+              <image wx:if="{{item.isSelected}}" src='../../images/icons/tx_xz@3x.svg'></image>
+              <image wx:else src='../../images/icons/fx_hh@3x.svg'></image>
+            </view>
+            <view class='pic-discr'>
+              <image lazy-load="{{true}}" mode='aspectFill' src="{{item.listCoverImage}}"></image>
+              <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+            </view>
+            <view class='info-con'>
+              <view class='info-cons'>
+                <text class='info-tit text-2-eclips'>{{item.name}}</text>
+                <text wx:if="{{!isShoper}}" class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+                <view class='info-price'>
+                  <text wx:if="{{isShoper}}" class='price shop-price'>价格:￥{{item.realPrice}}</text>
+                  <text wx:else class='price'>￥{{item.realPrice}}</text>
+                  <text wx:if="{{item.less != '' && !isShoper && shopid}}" class='reduce'>立省{{item.less}}元</text> 
+                </view>
+                <block wx:if="{{isShoper}}">
+                  <view wx:if="{{item.minCommission == item.maxCommission}}" class='commiss-con'>
+                        佣金：<text>￥{{item.maxCommission}}</text>
+                  </view>
+                  <view wx:else class='commiss-con'>
+                        佣金：<text>¥{{item.minCommission}}~￥{{item.maxCommission}}</text>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+      </view>
+      <view wx:if="{{noResult}}" class='no'>
+        <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image> 
+        <text class='text'>暂无相关商品</text>
+      </view> 
+
+      <view wx:if="{{isShoper}}" class='footer'>
+        <view class='sel-con-tip xpk-1px-t'>
+          <view bindtap='gwcOpen' wx:if="{{productIdArr.length}}" class='gwc mainBgColor'>
+            <image src='../../images/icons/gwc@3x.svg'></image>
+            <text class='sel-nums'>{{productIdArr.length}}</text>
+          </view>
+          <view wx:else class='gwc no-gwc'>
+            <image src='../../images/icons/gwc@3x.svg'></image>
+          </view>
+          <text>最多可选{{shareLen}}个</text>
+        </view>
+        <view wx:if="{{productIdArr.length}}" bindtap='maskShow' class='share-btn mainBgColor'>分享赚钱</view>
+        <view wx:else class='share-btn no-share-btn'>分享赚钱</view>
+      </view>
+    
+
+      <!--选中的商品  -->
+      <view class='mask gwc-mask' wx:if="{{gwcMask}}">
+        <view class='mask-bg' catchtap='gwcMaskShow'></view>
+        <view class='gwc-con'>
+          <view class='gwc-tit'>
+            <text>已选商品</text><icon class='icon-gb2' catchtap='gwcMaskShow'></icon>
+          </view>
+          <scroll-view class='gwc-list-con' scroll-y="true">
+            <view class='gwc-list xpk-1px-b' wx:for="{{productDataArr}}" wx:key="{{item}}">
+                <text class='tits text-2-eclips'>{{item.name}}</text>
+                <text class='money'>¥{{item.realPrice}}</text>
+                <image bindtap='delSel' data-index="{{index}}" data-id="{{item.id}}" src='../../images/icons/sc@3x2.svg'></image>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+
+      <!--分享  -->
+      <view class='mask' wx:if="{{isMask}}">
+        <view class='mask-bg' catchtap='maskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+          <view class='share-con'>
+            <view class='items'>
+              <button class='share-btn' open-type="share"></button>
+              <image src='../../images/icons/wx@3x.svg'></image>
+              <text>生成链接，发送好友</text>
+            </view>
+            <view class='items' catchtap="share">
+              <image src='../../images/icons/sc@3x.svg'></image>
+              <text>生成图片，发朋友圈</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+    </scroll-view>
+    
+    </label>
+</form>

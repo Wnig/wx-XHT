@@ -1,0 +1,14 @@
+<!--免费开店 - 编辑 -->
+<view class='input-con'>
+  <textarea focus bindinput='getTextLen' maxlength='{{len}}' placeholder='请输入{{tips}}' value='{{textVal}}'></textarea>
+  <view>{{nowLen}} / {{len}}</view>
+</view>
+
+<!--保存  -->
+<view wx:if="{{types == 'open'}}" bindtap='enterPage' class='btn mainBgColor'>保存</view>
+<form wx:else report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+    <view class='btn mainBgColor'>保存</view>
+  </label>
+</form> 

@@ -1,0 +1,78 @@
+<view wx:if="{{isLoad}}">
+  <!--顶部栏  -->
+  <!-- <view class='top-menus-tit xpk-1px-b'>
+    <view bindtap='selMenuTab' class='item {{index == selNum && categoryProduct.length ? "mainColor" : ""}}' wx:for="{{topMenu}}" wx:key="item" data-index="{{index}}">
+      {{item}}
+      <icon wx:if="{{index == 0 && categoryProduct.length}}" class='icon-sc_md_jt_x {{selNum == 0 && hotAll ? "all_icon" : ""}}'></icon>
+      <image wx:if="{{index == 2 && lowtohigh == 1 }}" src="../../images/icons/sc_sx_jt_s@3x.svg"></image>
+      <image wx:if="{{index == 2 && lowtohigh == 2}}" src="../../images/icons/sc_sx_jt_x@3x.svg"></image>
+      <image wx:if="{{index == 2 && lowtohigh == 0}}" src="../../images/icons/sc_sx_jt@3x.svg"></image>
+    </view>
+  </view> -->
+
+  <view class='top-menus-tit xpk-1px-b'>
+    <view bindtap='selMenuTab' class='item {{index == selNum ? "mainColor" : ""}}' wx:for="{{topMenu}}" wx:key="item" data-index="{{index}}">
+      {{item}}
+      <icon wx:if="{{index == 0}}" class='icon-sc_md_jt_x {{selNum == 0 && hotAll ? "all_icon" : ""}}'></icon>
+      <image wx:if="{{index == 2 && lowtohigh == 1 }}" src="../../images/icons/sc_sx_jt_s@3x.svg"></image>
+      <image wx:if="{{index == 2 && lowtohigh == 2}}" src="../../images/icons/sc_sx_jt_x@3x.svg"></image>
+      <image wx:if="{{index == 2 && lowtohigh == 0}}" src="../../images/icons/sc_sx_jt@3x.svg"></image>
+    </view>
+  </view>
+
+  <!--优选分类  -->
+  <view class="mask" wx:if="{{hotAll && categoryList.length}}">
+    <view class='hot'>
+      <view class='hot-con'>
+        <!-- <view class="hot-tit">优选分类</view> -->
+        <view class='hot-cons'>
+          <view class='hot-cons- clearfix'>
+            <view bindtap='selHotTab' wx:for="{{categoryList}}" wx:key="item" class='item {{index == selHotNum ? "item-sel" : ""}}' data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">
+              {{item.name}}
+              <image wx:if="{{index == selHotNum}}" class="sel-img" src="../../images/icons/dg@3x.svg"></image></view>
+          </view>
+        </view>
+      </view>
+      <view class="btn">
+        <view bindtap='hotBtns' data-type="no" class="cancel">取消</view>
+        <view bindtap='hotBtns' data-type="yes" data-desid="{{tourId}}" class='confirm mainBgColor'>确定</view>
+      </view>
+    </view>
+  </view>
+
+  <!--优选列表  -->
+  <block  wx:if="{{categoryProduct.length}}">
+    <view class='commoduty'>
+      <view class='container'>
+        <view class='list clearfix' bindtap='enterDetail' data-id="{{item.id}}" data-ishop="yes" wx:for="{{categoryProduct}}" wx:key="item">
+          <view class='pic-discr'>
+            <image mode='aspectFill' src="{{item.listCoverImage}}"></image>
+            <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+          </view>
+          <view class='info-con'>
+            <view class='info-cons'>
+              <text class='info-tit text-2-eclips'>{{item.name}}</text>
+              <view class='info-price'>
+                <text class='price'>￥{{item.realPrice}}</text>
+              </view>
+              <view class="commiss">
+                <view class='commiss-con'>
+                    佣金：<text>¥{{item.commission}}</text>
+                </view>
+                <view catchtap='removeShop' data-join="{{item.isAddProduct}}" data-id="{{item.id}}"  class='join mainBgColor {{item.isAddProduct == 0 ? "" : "joined"}}'>{{item.isAddProduct == 0 ? "加入店铺" : "移出店铺"}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+  </block>
+
+
+  <view wx:else class='no'>
+    <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+    <text class='text'>暂无商品数据</text>
+  </view>
+</view>

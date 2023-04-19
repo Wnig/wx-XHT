@@ -1,0 +1,153 @@
+<view wx:if="{{isLoad}}">
+  <!--出发地  -->
+  <view class="starting">
+    <text>出发地</text> 
+    <view class="place">
+      <view bindtap='selPlace' wx:for="{{palaceData}}" wx:key="item" class="item {{item.ticket == '0' ? 'sell_out' : ''}} {{selInd == index ? 'pitch_on' : ''}}" data-item="{{item.code}}" data-name="{{item.name}}" data-index="{{index}}" data-sellout="{{item.ticket == '0' ? 'yes' : 'no'}}">{{item.name}}</view>
+    </view> 
+  <!--套餐  -->
+  <text>选择套餐</text> 
+    <view class="place">
+      <view bindtap='selMeal' wx:for="{{mealData}}" wx:key="item" class="item {{selMealInd == index ? 'pitch_on' : ''}}" data-item="{{item.value}}" data-num="{{item.num}}" data-index="{{index}}">{{item.value}}</view>
+    </view> 
+  </view>
+
+  <!-- <view class="meal starting">
+    <text>选择套餐</text> 
+    <view class="place">
+      <view bindtap='selMeal' wx:for="{{mealData}}" wx:key="item" class="item {{selInd == index ? 'pitch_on' : ''}}" data-num="{{item.num}}" data-index="{{index}}">{{item.value}}</view>
+    </view> 
+  </view> -->
+
+  <!--选择出游日期  -->
+  <view class='selTime'>
+      <view class='tit xpk-1px-b'>选择出游日期</view>
+      <view class="calendar">
+        <!--月份切换  -->
+        <view class="month-header">
+          <icon bindtap='preBtn' class='pre-btn icon-pre {{selMonthNum == 0 ? "no-pre-next": ""}}' bindlongtap=''></icon>
+
+          <scroll-view class='months' scroll-x>
+            <view bindtap='selMonthTab' class='{{selMonthNum == index ? "mainBgColor" : ""}}' wx:for="{{outingMonthList}}" data-year="{{item.year}}" wx:if="{{item.month >= nowMonth}}"  data-month="{{item.month}}" wx:key="item" data-index="{{index}}">{{item.year}}年{{item.month}}月</view>
+          </scroll-view>
+
+          <icon bindtap='nextBtn' class='next-btn icon-next {{selMonthNum == outingMonthList.length-1 ? "no-pre-next": ""}}'></icon>
+        </view>
+
+        <!--日历-头部week  -->
+        <view class="week mainBgColor">
+          <view class="week-item" wx:for="{{weeks}}" wx:key="item">{{item}}</view>
+        </view>
+        
+        <!--日历-当月显示  -->
+        <view class='day clearfix'>
+          <!--上个月的最后几天  -->
+          <view class="day-item last-month-day" wx:for="{{lastMonthDays}}" wx:key="item" data-sel="{{item.choosed}}">{{item.day}}</view>
+
+          <!--当月的所有天数  -->
+          <view wx:for="{{days}}" wx:key="item">
+              <!--是否为当前月份  -->
+              <view wx:if="{{item.month == nowMonth}}">
+                <!--是否大于当前日期  -->
+                <!-- <view bindtap='selOutingDate' class="day-item {{item.day == selDayNum ? 'selDay' : ''}}"  wx:if="{{item.day >= nowDay}}" data-month="{{item.month}}" data-day="{{item.day}}">{{item.day}}<text>{{item.outingDataArry.adultPrice}}</text>
+                </view>
+
+                <view wx:else class="day-item" data-day="{{item.day}}" data-month="{{item.month}}">{{item.day}}<text>{{item.outingDataArry.adultPrice}}</text>
+                </view> -->
+              <!-- </view>
+            </view> -->
+
+                <!--有票价显示的可以点击-无票价显示的无法点击  -->
+                <view bindtap='selOutingDate' class="day-item {{ item.day == selDayNum ? 'selDay' : ''}}"  wx:if="{{item.day >= nowDay && (item.outingDataArry.adultPrice || item.outingDataArry.childPrice)}}" data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}"  data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}">
+                  {{item.day}}
+                  <text bindtap='selOutingDate' data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}" data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}">￥{{item.outingDataArry.adultPrice ? item.outingDataArry.adultPrice : item.outingDataArry.childPrice}}</text>
+                </view>
+
+                <view wx:else class="day-item" data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}" data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}">
+                  {{item.day}}
+                  <text></text>
+                </view>
+              </view>
+
+              <!--是否大于当前月份  -->
+              <view wx:elif="{{item.month > nowMonth}}">
+                <!--判断有票的日期 -->
+                <view wx:if="{{item.outingDataArry.adultPrice || item.outingDataArry.childPrice}}" data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}"  data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}" bindtap='selOutingDate' class="day-item {{item.day == selDayNum ? 'selDay' : ''}}" data-month="{{item.month}}">
+                  {{item.day}}
+                  <text bindtap='selOutingDate' data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}" data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}">￥{{item.outingDataArry.adultPrice ? item.outingDataArry.adultPrice : item.outingDataArry.childPrice}}</text>
+                </view>
+
+                <view wx:else class="day-item" data-num="{{item.outingDataArry.adultNum}}" data-cnum="{{item.outingDataArry.childNum}}" data-year="{{item.outingDataArry.year}}" data-month="{{item.month}}" data-day="{{item.day}}">
+                  {{item.day}}
+                  <text></text>
+                </view>
+              </view> 
+          </view>
+
+          <!--下个月前几天-置空  -->
+          <view class="day-item" wx:for="{{nextMonthDays}}" wx:key="item"></view>
+        </view>
+      </view>
+  </view>
+
+  <!--弹窗  -->
+  <view class='mask' wx-if="{{tipShow}}">
+    <view class='tips'>
+      <view class='tips-con'>
+        <view class="tit xpk-1px-b">
+          温馨提示
+          <icon bindtap='tipsRule' class='icon-fksb'></icon>
+        </view>
+        <view class='content'>
+          年龄0~12周岁（不含），不占床，含往返机票，含当地旅游车位，含半餐。不含住宿及景点门票费（儿童超过1.2米请至景区购买门票，司机会协助购买。具体门票费用请参考景区的儿童门票政策），其他儿童超标准的费用均敬请自理
+        </view>
+      </view>
+      <view bindtap='tipsRule' class='ok mainColor xpk-1px-t'>知道了</view>
+    </view>
+  </view>
+
+  <!--选择数量  -->
+  <view class='sel-ticket'>
+    <!--成人选择票数  -->
+    <!--adultPrice != 0 && adultPrice != ''  -->
+    <view class="adult" wx:if="{{adultNum}}">
+      <view class='price-info'>
+          <text>成人</text>
+          <text wx:if="{{!isNoDay}}" class="price"> ¥{{type == '0' ? (adultPrice*1000 - less*1000)/1000 : adultPrice}}</text>
+      </view>
+      <view class="add-sub">
+        <view class="add-sub-btn">
+          <view bindtap='changeGoodCount' class='addsub-btn sub mainBgColor' data-index="0" data-type="sub">-</view>
+          <view class='input'>{{inputValue[0]}}</view>
+          <view bindtap='changeGoodCount' class='addsub-btn add mainBgColor' data-index="0" data-type="add">+</view>
+        </view>
+      </view>
+    </view>
+
+    <!--儿童选择票数  -->
+    <!-- childPrice != 0 && childPrice != '' -->
+    <view class="child" wx:if="{{childNum}}">
+      <view class='price-info'>
+        <text>儿童</text>
+        <icon bindtap='tipsRule' class='icon-bz'></icon>
+        <text  wx:if="{{!isNoDay}}" class="price"> ¥{{type == '0' ? (childPrice*1000 - less*1000)/1000 : childPrice}}</text>
+      </view>
+      <view class="add-sub">
+        <view class="add-sub-btn">
+          <view bindtap='changeGoodCount' class='addsub-btn sub mainBgColor' data-index="1" data-type="sub">-</view>
+          <view class='input'>{{inputValue[1]}}</view>
+          <view bindtap='changeGoodCount' class='addsub-btn add mainBgColor' data-index="1" data-type="add">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--合计-购买  -->
+  <view class='total-buy'>
+    <view class='total'>
+      合计:<text>￥{{amount}}</text>
+    </view>
+    <view wx:if="{{!isNoDay}}" class="buy mainBgColor" bindtap='buyTicket'>立即购买</view>
+    <view wx:else class="buy nothings">立即购买</view>
+  </view>  
+</view>

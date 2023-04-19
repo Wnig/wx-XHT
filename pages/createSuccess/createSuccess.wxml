@@ -1,0 +1,38 @@
+<!--开店成功  -->
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+
+    <view class='success-tip'>
+      <image src='../../images/icons/ej_kym@3x.svg'></image>
+      <view class='dis'>恭喜您开通旅行社网店，现在赶快推荐好友一起赚钱吧！</view>
+      <view class='btns-con'>
+        <view bindtap='maskShow' class='share-btn mainBgColor'>推荐好友</view>
+        <view bindtap='enterPage'>返回首页</view>
+      </view>
+    </view>
+
+    <!--分享  -->
+    <view class='mask' wx:if="{{isMask}}">
+      <view class='mask-bg' catchtap='maskShow'></view>
+      <view class='share'>
+        <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+        <view class='share-con'>
+          <view class='item'>
+            <button class='share-btn' open-type="share"></button>
+            <image src='../../images/icons/wx@3x.svg'></image>
+            <text>生成链接，发送好友</text>
+          </view>
+          <view class='item' catchtap="share">
+            <image src='../../images/icons/sc@3x.svg'></image>
+            <text>生成图片，发朋友圈</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+
+  </label>
+</form>
+

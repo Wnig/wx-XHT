@@ -1,0 +1,18 @@
+<scroll-view scroll-y	='{{true}}' class='scroll-box mainBgColor'>
+  <view class='friends-container'>
+    <view class='title'>
+      <image class='line' src='../../images/icons/lineleft.png' mode='widthFix'></image>
+      <text class='text'>好友帮</text>
+      <image class='line' src='../../images/icons/lineright.png' mode='widthFix'></image>
+    </view>
+    <view class='item' wx:for='{{list}}' wx:key='{{index}}'>
+      <image src='{{item.avatarUrl}}' mode='widthFix' class='avatar'></image>
+      <text class='name'>{{item.nickName}}</text>
+      <text class='money'>砍价{{knockAveragePrice}}元</text>
+    </view>
+    <view class='more'>
+      <text class='text'>无更多</text>
+    </view>
+  </view>
+  <view style='height: 100rpx;'></view>
+</scroll-view>

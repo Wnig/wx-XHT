@@ -1,0 +1,102 @@
+<!--今日必发素材  -->
+<form report-submit="true" bindsubmit="postForm">
+  <button id="postForm" form-type="submit"></button>
+  <label for='postForm'>
+    <view wx:if="{{isLoad}}">
+      <view style="padding-bottom:98rpx;" wx:if="{{betfairProductList.length}}">
+        <view class='commoduty'>
+          <view class='container'>
+            <view class='list clearfix {{betfairProductList.length-1 == index? "" : "xpk-1px-b"}}' wx:for="{{betfairProductList}}" wx:key="item">
+              <view class='sel-btn-con' catchtap='itemSelected' data-index="{{index}}" data-id="{{item.id}}">
+                <image wx:if="{{item.isSelected}}" src='../../images/icons/tx_xz@3x.svg'></image>
+                <image wx:else src='../../images/icons/fx_hh@3x.svg'></image>
+              </view>
+              <view class='pic-discr' data-id="{{item.id}}" bindtap='enterPage'>
+                <image mode='aspectFill' src="{{item.listCoverImage}}"></image>
+                <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+              </view>
+              <view class='info-con' data-id="{{item.id}}" bindtap='enterPage'>
+                <view class='info-cons'>
+                  <text class='info-tit text-2-eclips'>{{item.name}}</text>
+                  <view class='info-price'>
+                    <text class='price'>价格:￥{{item.realPrice}}</text>
+                  </view>
+                  <view class="commiss">
+                    <view wx:if="{{item.minCommission == item.maxCommission}}" class='commiss-con'>
+                        佣金：<text>¥{{item.maxCommission}}</text>
+                    </view>
+                    <view wx:else class='commiss-con'>
+                        佣金：<text>¥{{item.minCommission}}~¥{{item.maxCommission}}</text>
+                    </view>
+                    <!-- <view data-item="{{item}}" class='join mainBgColor' bindtap='openMask'>分享赚钱</view> -->
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+      </view>
+
+      <view wx:else class='no'>
+        <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+        <text class='text'>暂无素材</text>
+      </view>
+
+      <view class='footer'>
+        <view class='sel-con-tip xpk-1px-t'>
+          <view bindtap='gwcOpen' wx:if="{{productIdArr.length}}" class='gwc mainBgColor'>
+            <image src='../../images/icons/gwc@3x.svg'></image>
+            <text class='sel-nums'>{{productIdArr.length}}</text>
+          </view>
+          <view wx:else class='gwc no-gwc'>
+            <image src='../../images/icons/gwc@3x.svg'></image>
+          </view>
+          <text>最多可选{{shareLen}}个</text>
+        </view>
+        <view wx:if="{{productIdArr.length}}" bindtap='maskShow' class='share-btn mainBgColor'>分享赚钱</view>
+        <view wx:else class='share-btn no-share-btn'>分享赚钱</view>
+      </view>
+
+      <!--选中的商品    -->
+      <view class='mask gwc-mask' wx:if="{{gwcMask}}">
+        <view class='mask-bg {{gwcMask ? "sel-mask-bg": ""}}' catchtap='gwcMaskShow'></view>
+        <view class='gwc-con {{gwcMask ? "sel-gwc-con" : ""}}'>
+          <view class='gwc-tit'>
+            <text>已选商品</text><icon class='icon-gb2' catchtap='gwcMaskShow'></icon>
+          </view>
+          <scroll-view class='gwc-list-con' scroll-y="true">
+            <view class='gwc-list xpk-1px-b' wx:for="{{productDataArr}}" wx:key="{{item}}">
+                <text class='tits text-2-eclips'>{{item.name}}</text>
+                <text class='money'>¥{{item.realPrice}}</text>
+                <image bindtap='delSel' data-index="{{index}}" data-id="{{item.id}}" src='../../images/icons/sc@3x2.svg'></image>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+
+      <!--分享  -->
+      <view class='mask' wx:if="{{isMask}}">
+        <view class='mask-bg' catchtap='maskShow'></view>
+        <view class='share'>
+          <view class='title'>请选择 <icon class='icon-gb2' catchtap='maskShow'></icon></view>
+          <view class='share-con'>
+            <view class='item'>
+              <button class='share-btn' open-type="share"></button>
+              <image src='../../images/icons/wx@3x.svg'></image>
+              <text>生成链接，发送好友</text>
+            </view>
+            <view class='item' catchtap="share">
+              <image src='../../images/icons/sc@3x.svg'></image>
+              <text>生成图片，发朋友圈</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <canvas canvas-id="myCanvas" hidden="true" style="width:375px;height:580px;position:absolute;z-index:-100"/>
+      
+    </view>
+  </label>
+</form>

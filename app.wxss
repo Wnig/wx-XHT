@@ -1,0 +1,130 @@
+/**app.wxss**/
+@import 'static/css/iconfont.wxss';
+
+.clearfix:after {content:"\200B"; display:block; height:0; clear:both; }
+.clearfix { zoom:1; }
+
+page {
+  color: #000;
+  --theme: #fff;
+  --themeBg: #64A5FF;
+}
+
+
+
+/*主题色  */
+
+.mainBgColor {
+  color: var(--theme);
+  background-color: var(--themeBg);
+}
+.mainColor {
+  color: var(--themeBg);
+}
+
+.navColor {
+  color: #2578E4;
+}
+.navBorColor {
+  background-color: #2578E4;
+}
+
+page {
+  background-color: #f5f5f5;
+  font-size: 0; 
+}
+/* 去滚动条 */
+::-webkit-scrollbar {
+  display:none;
+  width: 0;
+}
+
+/* 超出两行隐藏 */
+.text-2-eclips {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 超出一行隐藏 */
+.text-1-eclips {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/* 上下左右一像素边框 */
+.xpk-1px-b {
+  position: relative;
+}
+
+.xpk-1px-b::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #C7C7C7;
+  color: #C7C7C7;
+   -webkit-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.xpk-1px-t {
+  position: relative
+}
+
+.xpk-1px-t::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #C7C7C7;
+  color: #C7C7C7;
+   -webkit-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.xpk-1px-l{
+  position: relative
+}
+.xpk-1px-l::before{
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px solid #C7C7C7;
+    color: #C7C7C7;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+
+.xpk-1px-r{
+  position: relative;
+}
+.xpk-1px-r::after{
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid #C7C7C7;
+    color: #C7C7C7;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}

@@ -1,0 +1,572 @@
+page {
+  padding-bottom: 100rpx;
+}
+
+/*收藏-分享  */
+.pic-ico {
+  position: absolute;
+  right: 30rpx;
+  top: 32rpx;
+  z-index: 999;
+}
+.collect {
+  display: inline-block;
+}
+.pic-ico image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 30rpx;
+}
+
+.pages {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 35px;
+  height: 18px;
+  border-radius: 100px;
+  color: #000;
+  text-align: center;
+  line-height: 18px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  background: #fff;
+  z-index: 9999;
+}
+.pic-show {
+  position: relative;
+}
+.banner {
+  width: 100%;
+  height: 750rpx;
+  background: url('https://tour.xinhongt.com/xht/photoServer/sample/detail-bj.jpg');
+  background-size: 100% 100%;
+}
+
+.banner image {
+  width: 100%;
+  height: 100%;
+}
+
+/* base-info */
+.base-info {
+  position: relative;
+  padding: 0 30rpx 30rpx 40rpx;
+  background: #FFF;
+}
+
+.base-info .part1 {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.base-info .part1 .price {
+  flex: 1;
+  font-size: 0;
+}
+
+.base-info .price .rmb {
+  display: inline-block;
+  font-family: PingFangSC-Medium;
+  font-size: 14px;
+  color: #000000;
+  line-height: 28rpx;
+}
+
+.base-info .price .sell-price {
+  display: inline-block;
+  font-family: PingFangSC-Medium;
+  font-size: 26px;
+  color: #000000;
+  line-height: 52rpx;
+}
+
+.base-info .price .orign-price {
+  display: inline-block;
+  margin-left: 22rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #AAAAAA;
+  line-height: 32rpx;
+  text-decoration: line-through;
+}
+.base-info .price .share-lab {
+  position: absolute;
+  right: -5rpx;
+  top: 30rpx;
+  /* width: 232rpx; */
+  height: 52rpx;
+  padding: 0 16rpx;
+  border-radius: 50px 0 0 50px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #FF972C;
+}
+
+.base-info .part2 {
+  margin-bottom: 17px;
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.03px;
+  line-height: 44rpx;
+}
+
+.base-info .part3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  line-height: 12px;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+}
+.base-info .part3 .time {
+  flex: 1;
+}
+
+/*出发城市  */
+.set-off {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14rpx;
+  padding: 0 30rpx;
+  height: 48px;
+  color: #000000;
+  line-height: 14px;
+  font-size: 14px;
+  font-family: 'PingFangSC-Regular';
+  background: #FFFFFF;
+}
+.set-off .citys {
+  flex: 1;
+  text-align: right;
+}
+
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  background: #FFF;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.footer .icons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer .sy image {
+  display: block;
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 6px;
+}
+.footer .sy {
+  padding: 14rpx 22rpx 14rpx 40rpx;
+}
+
+.footer .sc {
+  position: relative;
+  padding: 14rpx 40rpx 14rpx 22rpx;
+}
+
+.footer .sc button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+}
+
+
+.footer .icons .text {
+  font-family: PingFangSC-Light;
+  font-size: 10px;
+  color: #666666;
+  line-height: 20rpx;
+}
+.footer .icons icon {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.footer .btns {
+  flex: 1;
+  height: 100%;
+  text-align: center;
+}
+
+.footer .share-purchase {
+  background: #FF972C;
+}
+
+.footer .btns text {
+  display: block;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 28rpx;
+}
+
+.footer .btns .price {
+  margin: 16rpx 0 12rpx;
+}
+.footer .prices {
+  width: 250rpx;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+.footer .btns .share-btns, .footer .btns .join-btns {
+  height: 100rpx;
+  line-height: 100rpx; 
+}
+.footer .btns .joined-btn {
+  background: #ADADAD;
+}
+
+/* public-container */
+.public-container {
+  margin-top: 14rpx;
+  background: #FFF;
+}
+
+.public-container  .head {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.public-container .head  .part1 {
+  flex: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  line-height: 80rpx;
+}
+
+
+.public-container .head .part2 .text {
+  vertical-align: middle;
+  margin-right: 10rpx;
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #AAAAAA;
+  line-height: 28rpx;
+}
+
+.public-container .head  .part2 [class^="icon-"] {
+  vertical-align: middle;
+  font-size: 10px;
+  color: #AAA;
+}
+
+.public-container .sub-container {
+  background: #FFF;
+}
+
+.public-container .sub-container .item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 30rpx;
+}
+.public-container .sub-container .item_ {
+  width: 100%;
+}
+
+.public-container .sub-container .part1 {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+}
+
+.public-container .sub-container  .part2 {
+  flex: 1;
+  margin-left: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #000000;
+  line-height: 28rpx;
+}
+
+.public-container .sub-container .part3 {
+
+}
+
+.public-container .sub-container .part3 .surplus {
+  margin-bottom: 10rpx;
+  color: #000000;
+  text-align: center;
+  line-height: 12px;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+.public-container .sub-container .part3 .surplus text {
+  color: #FF972C;
+}
+
+.public-container .sub-container .part3 .deadline {
+  color: #AAAAAA;
+  text-align: center;
+  line-height: 10px;
+  font-size: 10px;
+  font-family: 'PingFangSC-Regular';
+}
+
+.public-container .sub-container .user-discuss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24rpx;
+}
+
+.public-container .sub-container .time {
+  color: #AAAAAA;
+  line-height: 12px;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+
+.public-container .sub-container .dis-cont {
+  display: block;
+  margin-bottom: 20rpx;
+  color: #000000;
+  line-height: 20px;
+  font-size: 14px;
+  font-family: 'PingFangSC-Light';
+}
+.public-container .sub-container .starting-info {
+  display: block;
+  color: #9C9C9C;
+  line-height: 12px;
+  font-size: 12px; 
+  font-family: 'PingFangSC-Light';
+}
+
+/* 商品图片详情~简介 */
+.good-details {
+  margin-top: 14rpx;
+  background: #FFF;
+}
+
+.good-details .title {
+  padding: 36rpx 0 40rpx;
+  text-align: center
+}
+
+.good-details .title  .line {
+  vertical-align: middle;
+  width: 100rpx;
+}
+
+.good-details .title .text {
+  margin: 0 10rpx;
+  vertical-align: middle;
+  font-family: PingFangSC-Regular;
+  font-size: 16px;
+  color: #4D4D4D;
+  letter-spacing: -0.6px;
+  line-height: 32rpx;
+}
+
+.good-details .main image {
+  display: block;
+  width: 100%;
+}
+
+/*分享弹窗  */
+.mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+.mask-bg {
+  width: 100%;
+  height: 100%;
+}
+.mask .share {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 456rpx;
+  background: #fff; 
+}
+.mask .title {
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;  
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+  background: #F5F5F5;
+}
+.mask .title icon {
+  position: absolute;
+  top: 0;
+  right: 28rpx;
+  line-height: 80rpx;
+  font-size: 18px;
+}
+.mask .share-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 376rpx;
+}
+.mask .item {
+  position: relative;
+  margin: 0 55rpx;
+}
+.kf-mask .item {
+  position: relative;
+  margin: 0 113rpx;
+}
+.mask .item button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  z-index: 2;
+}
+.mask .item button:after {
+  border: none;
+}
+.mask .item image {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto 24rpx;
+}
+.mask .item text {
+  display: block;
+  color: #666666;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'PingFangSC-Regular';
+}
+
+/*弹窗  */
+.mask-tips {
+  position: fixed;
+  left: 0;
+  top: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999999;
+}
+
+.mask-tips .tips {
+  width: 300px;
+  background: #FFFFFF;
+  border-radius: 6px;
+}
+.mask-tips .tips-con {
+  padding: 0 15px;
+}
+.mask-tips .tit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1C1C1C;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+.mask-tips .tit icon {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  color: #D8D8D8;
+  line-height: 50px;
+  font-size: 20px;
+}
+.mask-tips .tips .content {
+  padding: 25px 0;
+  color: #666666;
+  line-height: 18px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 12px;
+}
+/* .mask-tips .tips .content text {
+  display: block;
+  margin-bottom: 4rpx;
+} */
+
+.mask-tips .content .p {
+  position: relative;
+  margin-bottom: 24rpx;
+  padding-left: 38rpx;
+}
+.mask-tips .content .num {
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+  text-align: center;
+  line-height: 24rpx;
+  font-size: 10px;
+  font-family: 'PingFangSC-Regular';
+}
+
+.mask-tips .tips .ok {
+  color: #64A5FF;
+  text-align: center;
+  line-height: 44px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 16px;
+}
+
+.rule-btn{
+  position: fixed;
+  left:0;
+  bottom:122rpx;
+  width:94px;
+  height:34px;
+  font-size: 14px;
+  line-height: 34px;
+  padding-left: 8px;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+  background: rgba(0, 0, 0, .3);
+  color:#fff;
+}
+.rule-btn .icon2-hdgz{
+  position:absolute;
+  display:block;
+  font-size:16px;
+  top:9px;
+  right:9px;
+}
+

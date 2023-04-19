@@ -1,0 +1,44 @@
+<view class='container'>
+  <view class='item-container xpk-1px-b' wx:for='{{evaluate}}' wx:key='{{index}}'>
+    <image class='avatar' src='{{item.avatarImage}}' mode='widthFix'></image>
+    <view class='content'>
+      <!-- part1 begain -->
+      <view class='part1'>
+        <text class='nick-name'>{{item.nickName}}</text>
+        <view class='star'>
+          <text class='icon-spxq_pl_lx {{k < item.score?"select":""}}' wx:for='{{5}}' wx:for-item='star' wx:for-index='k' wx:key='{{k}}'></text>
+        </view>
+      </view>
+      <!-- part1 end -->
+
+      <!-- part2 begain -->
+      <view class='evaluate-text' wx:if='{{item.content && item.content != ""}}'>{{item.content}}</view>
+      <!-- part2 end -->
+
+      <!-- part3 begain -->
+      <view class='eva-imgs' wx:if='{{item.commentImage && item.commentImage.length}}'>
+        <image
+          wx:for='{{item.commentImage}}'
+          wx:for-item='img'
+          wx:for-index='j'
+          wx:key='{{j}}'
+          mode='aspectFit'
+          src='{{img}}'
+          class='item' bindtap='previewEvaImg' data-curr='{{img}}' data-imgs='{{item.commentImage}}'>
+          </image>
+      </view>
+      <!-- part3 end -->
+
+      <!-- part4 begain -->
+      <view class='spec-date'>
+        <view class='spec-arr'>
+          <text class='item'>{{item.departure_date}}从{{item.departure}}出发</text>
+        </view>
+      </view>
+      <!-- part4 end -->
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{nomore}}" class='no-more'>没有更多评价了</view>

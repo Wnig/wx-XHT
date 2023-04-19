@@ -1,0 +1,18 @@
+<!--如何赚钱  -->
+<!-- <view class='how-to-list'>
+  <view class='item {{(index == howToList.length-1) ? "" : "xpk-1px-b"}}' wx:for="{{howToList}}" wx:key="item" data-howtolist='{{item}}' bindtap='enterDetail'>
+    <text class='text-1-eclips'>{{item.title}}</text>
+    <icon class='icon-jt'></icon>
+  </view>
+</view> -->
+<view wx:if="{{isLoad}}">
+  <view class='menu-con'>
+    <view class='menu'>
+      <view class='btn {{selInd == index ? "sel_btn" : ""}} {{index == 1 ? "c_btn" : ""}}' wx:for='{{menus}}' wx:key="{{item}}" data-index="{{index}}" bindtap='menuTab'>{{item}}</view>
+    </view>
+  </view>
+  <view class='img-con'>
+    <image lazy-load='{{true}}' mode="widthFix" src="{{promoteMakeMoney}}"></image>
+  </view>
+  
+</view>

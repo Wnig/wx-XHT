@@ -1,0 +1,53 @@
+<!--好友的店  -->
+<view wx:if="{{isLoad}}">
+  <block wx:if="{{userShopList.length}}">
+    <view class='fans-list'>
+      <view class='item {{index == userShopList.length - 1 ? "" : "xpk-1px-b"}}' wx:for="{{userShopList}}" wx:key="item">
+        <image src='{{item.avatarImageUrl}}'></image>
+        <view class='fans-info'>
+          <text class='name text-1-eclips'>{{item.nickName}}</text>
+          <text class='time'>{{item.createDate}}开店了</text>
+        </view>
+        <view class='control'>
+          <view class='part1' data-has="{{item.ishas}}" data-wx="{{item.wechatId}}"  bindtap='isMaskShow'>
+            <icon class='icon-jwx'></icon>
+            <text>加微信</text>
+          </view>
+          <view class='part2' data-shopid="{{item.id}}" bindtap='hisShop'>
+            <icon class='icon-dp'></icon>
+            <text>查看店铺</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class='no-more'>已经到底了~</view>
+  </block>
+
+  <view wx:else class='no'>
+    <image src='../../images/icons/ej_kym@3x.svg' mode='widthFix' class='icon'></image>
+    <text class='text'>暂无店铺</text>
+  </view>
+
+  <!--弹窗  -->
+  <view class='mask' wx:if="{{isMask}}">
+    <view class='tips' wx:if="{{isHas}}">
+      <view class='title'>提示</view>
+      <view class='content xpk-1px-b'>
+        对方未设置微信号
+      </view>
+      <view class='close' bindtap='closeMask'>
+        关闭
+      </view>
+    </view> 
+    <view class='tips' wx:else>
+      <view class='title'>加微信</view>
+      <view class='content xpk-1px-b'>
+        <text selectable="true">微信号：{{wxHao}}</text><text class='copy mainColor' bindtap="copyTBL">复制</text>
+      </view>
+      <view class='close' bindtap='closeMask'>
+        关闭
+      </view>
+    </view>
+  </view>
+</view>

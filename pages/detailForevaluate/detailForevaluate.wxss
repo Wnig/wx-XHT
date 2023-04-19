@@ -1,0 +1,94 @@
+page {
+  
+}
+.container {
+  background: #FFF; 
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.item-container {
+  display: flex;
+  padding: 36rpx 0;
+}
+
+.item-container > .avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+}
+
+.item-container > .content {
+  flex: 1;
+  padding: 0 30rpx 0 24rpx;
+}
+
+.content > .part1 {
+  display: flex;
+  align-items: center;
+}
+
+.content > .part1 > .nick-name {
+  flex: 1;
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #202020;
+  letter-spacing: 0;
+  line-height: 64rpx;
+}
+
+.content > .part1 > .star > text {
+  font-size: 14px;
+  color: #DDD;
+}
+
+.content > .part1 > .star > .select {
+  color: #FFa816;
+}
+
+.content > .evaluate-text {
+  font-family: PingFangSC-Light;
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: 0;
+  line-height: 36rpx;
+}
+
+.content > .eva-imgs {
+  margin-top: 20rpx;
+}
+
+.content > .eva-imgs > .item {
+  margin-right: 20rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background-color:#000; 
+}
+
+.content > .spec-date {
+  display: flex;
+  align-items: center;
+}
+
+.content > .spec-date > .spec-arr {
+  flex: 1;
+  margin-top: 24rpx;
+}
+
+.content > .spec-date > .spec-arr > .item {
+  margin-right: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #AAAAAA;
+  line-height: 20rpx;
+}
+
+.no-more {
+  padding-bottom: 10rpx;
+  opacity: 0.3;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #222333;
+  line-height: 90rpx;
+  text-align: center;
+}

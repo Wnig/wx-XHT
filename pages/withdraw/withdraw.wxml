@@ -1,0 +1,98 @@
+<view wx:if="{{isLoad}}">
+  <!--提现  -->
+  <view class='bank-info-con'>
+    <view class='bank-info'>
+      <view class='bank'>
+        <text>收款账号</text>
+        <text wx:if="{{withdrawWays != ''}}" bindtap='showBanks'>{{withdrawWays}} ></text>
+        <text wx:else bindtap='bindingInfo'>添加银行卡 ></text>
+      </view>
+      <view class='account'>
+        48小时内到帐
+      </view>
+    </view>
+
+    <view class='money'>
+      <view class='tit'>提现金额</view>
+      <view class="input-money xpk-1px-b">
+        <text>¥</text>
+        <input placeholder-class="placeholder" focus type='digit' bindinput='inputVal' value='{{inputval}}' step="0.01" min="0.01" max="8"></input>
+      </view>
+      <view class='tips'>账户余额¥{{amount}}，<text bindtap='allMoney' class='mainColor'>全部提现</text></view>
+      <view bindtap='withdraw' class='btn mainBgColor'>提现</view>
+    </view>
+  </view>
+
+  <!--提现说明  -->
+  <view class='tip'>
+    <view>提现说明：</view>
+    <view wx:for="{{withdrawalInstructions}}" wx:key="item">
+      <view>{{item}}</view>
+    </view>
+  </view>
+
+  <!--弹窗  -->
+  <view class='mask' wx-if="{{maskShow}}">
+    <view class='tixian'>
+      <view class='tit'>提现</view>
+      <view class='xpk-1px-b cons'>
+        <view class='item'>
+          <text class='part1'>申请提现</text>
+          <text class='part2'>¥{{inputval}}</text>
+        </view>
+        <view class='item'>
+          <text class='part1'>服务费</text>
+          <text class='part2'>-¥{{serviceFee}}</text>
+        </view>
+        <view class='item'>
+          <text class='part1'>实际到账</text>
+          <text class='part2'>¥{{realAmount}}</text>
+        </view>
+      </view>
+      <view class='btns'>
+        <text bindtap='cancel' class='no xpk-1px-r'>取消</text>
+        <form report-submit="true" bindsubmit="postForm">
+          <button id="postForm" form-type="submit"></button>
+          <label for='postForm'> 
+              <text class='yes mainColor'>确定</text> 
+          </label>
+        </form>
+      </view>
+    </view>
+  </view> 
+
+  <!--弹窗-提现方式  -->
+  <view class='mask' wx:if="{{isBankShow}}">
+    <view class='shouk-con'>
+      <view class='tits'>
+        <text bindtap='cancelBtn' class='cancel-btn'>取消</text>
+        <text bindtap='finishBtn' data-sel="{{selNum}}" class='finish-btn'>完成</text>
+      </view>
+      <view class='shoukuan-info'>
+        <block wx:for="{{withdrawWayArr}}" wx:key="{{item}}" wx:index="{{index}}">
+          <view bindtap='selBtn' data-sel="{{item.isSelected}}" data-index="{{index}}"  wx:if="{{weixinChangeIsOpen == '1' && index == 0}}" class='shouk-item xpk-1px-b'>
+            <text>微信零钱（{{item.nickName}}）</text>
+            <view bindtap='selBtn' data-sel="{{item.isSelected}}" data-index="{{index}}">
+              <image wx:if="{{item.isSelected}}" src='../../images/icons/tx_xz@3x.svg'></image>
+              <image wx:else src='../../images/icons/fx_hh@3x.svg'></image>  
+            </view>
+          </view>  
+          <view bindtap='selBtn' data-sel="{{item.isSelected}}" data-index="{{index}}" wx:if="{{bankCard != '' && index == 1}}" class='shouk-item xpk-1px-b'>
+            <text>银行卡（{{item.bankCard}}）</text>
+            <view bindtap='selBtn' data-sel="{{item.isSelected}}" data-index="{{index}}">
+              <image wx:if="{{item.isSelected}}" src='../../images/icons/tx_xz@3x.svg'></image>
+              <image wx:else src='../../images/icons/fx_hh@3x.svg'></image>  
+            </view>
+          </view>
+        </block>
+        
+        <view wx:if="{{bankCard == ''}}" bindtap='bindingInfo' class='shouk-item shouk-add xpk-1px-b'>
+          <text class='add'>+</text>
+          <text>添加银行卡</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+ 
+

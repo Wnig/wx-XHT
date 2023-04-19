@@ -1,0 +1,26 @@
+
+ <view class='container'>
+    <view bindtap='enterDetail' class='list clearfix {{productList.length-1 == index? "" : "xpk-1px-b"}}' wx:for="{{productList}}" wx:key="item" data-id='{{item.id}}'>
+      <view class='pic-discr'>
+        <image lazy-load="{{true}}" mode='aspectFill' src="{{item.listCoverImage}}"></image>
+        <text>{{item.departure == '多地出发' ? item.departure: item.departure + '出发'}}</text>
+      </view>
+      <view class='info-con'>
+        <view class='info-cons'>
+          <text class='info-tit text-2-eclips'>{{item.name}}</text>
+          <text class='info-time'>{{item.minDepartureDate}} 至 {{item.maxDepartureDate}}出发</text>
+          <view class='info-price'>
+            <text class='price'>￥{{item.realPrice}}</text>
+            <text wx:if="{{item.less != ''}}" class='reduce'>立省{{item.less}}元</text> 
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+
+ <!--开店提示  -->
+<view class='open-shop-tips'>
+    <image src="../../images/sample/logo@3x.png"></image>
+    <text>“免费开店日赚1000元”</text>
+    <view class='open-shop-btn mainBgColor' data-url="../creatingShop/creatingShop" bindtap='enterOpen'>马上开店</view>
+</view>
